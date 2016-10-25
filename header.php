@@ -1,11 +1,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div class="header" style="display:block;  padding-bottom: 25px; background:#3949AB; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); width:100%; line-height: 64px; color: #333">
+<div class="header">
 <div style="width:90%; margin:auto; text-align:right; height:auto; background:transparent; color:#FFF;">
 <div style="float:left;"><a href="admin/" class="lang">Login</a></div>
 <a href="#" class="lang">ትግርኛ</a> | <a href="#" class="lang" style="font-size:14px;">English</a>
 </div>
-	<div style="background: white; padding: 10px 0px;">
+	<div style="background: transparent; padding: 10px 0px;">
 		<div style="width:90%; margin:auto;">
 						<img src="eotc-logo.png" style="height:100px; float: left;">
 						<div style="height: 100px;
@@ -25,7 +25,15 @@
 				<li>
 				<div style="padding:0px 25px;">ትምህርተ ሃይማኖት</div>
 				<ul class="subnav">
-					<li>5 አዕማደ ምስጢር</li>
+					<li style="position:relative;">5 አዕማደ ምስጢር
+						<ul class="subsub" style="">
+						<li>dafsdas</li>
+						<li>dafsdsfa</li>
+						<li>adfsdfsa</li>
+						<li>dafsdas</li>
+						<li>dafsdsfa</li>
+						<li>adfsdfsa</li>
+					</ul></li>
 					<li>7 ምስጢራተ ቤተክርስቲያን</li>
 					<li>ካልኦት ትምህርትታት</li>
 				</ul>

@@ -8,6 +8,15 @@
   transition: all 400ms ease;
   outline: none;
 }
+.header{
+  display: block;
+  padding-bottom: 25px;
+  background: url(background_sky.jpg) center;
+  width: 100%;
+  line-height: 64px;
+  color: #333;
+  background-size: cover;
+}
 input[type="username"], input[type="text"], input[type="password"], textarea{
   padding: 10px !important;
   border: 1px solid #CCC;
@@ -99,28 +108,29 @@ a.readMoreButton{
   float: left;
     height: 40px;
     line-height: 40px;
-    border-radius: 4px 4px 0px 0px;
+    /*border-radius: 4px 4px 0px 0px;*/
 }
 .header ul:hover li{
   color:#000;
 }
 .header ul li:hover div{
-  background:#3F51B5;
+  background:#444;
   color: #FFF;
   border-radius: 4px 4px 0px 0px;
 }
 .header ul li:hover ul{
-  background: #3F51B5;
+  background: #444;
 }
 .header ul li:hover ul li{
-  background: #3F51B5;
+  background:#444;
+  border-bottom:1px solid #555;
   color: #FFF;
 }
 ul.subnav{
   display: none;
   color: #FFF;
   position: absolute;
-    overflow: auto;
+    overflow: visible;
     width: auto;
 }
 ul.subnav li{
@@ -132,8 +142,19 @@ ul.subnav li{
 ul.subnav li:hover{
     background: #2436a7 !important;
 }
+
 .header ul li:hover ul.subnav{
   display: block;
+}
+ul.subnav li:hover .subsub{
+  display: block !important;
+}
+.subsub{
+  position: absolute;
+float: left;
+left: 190;
+top: 0;
+display:none;
 }
 #date{
   background: #3949AB;
@@ -240,8 +261,8 @@ header ul li:hover{
 .nav{
   position:relative;
   text-align: center;
-  margin: auto; background:white;
-  padding-top: 20px;
+  background: #FFF;
+  padding-top: 0px;
   /*box-shadow: 2px 3px 5px #2436a7;*/
 }
 .mainContent{

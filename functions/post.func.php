@@ -60,4 +60,22 @@
 
     return $return;
   }
+
+  function editPost($post_id,$post_title,$post_text,$postEditor){
+    $return=array();
+
+    $article_title=nl2br(mysql_real_escape_string($post_title));
+    $article_text=nl2br($post_text);
+    $article_text=mysql_real_escape_string($post_text);
+
+    $query=mysql_query("UPDATE posts SET post_title='$post_title', post_text='$post_text', post_author_id='$postEditor' WHERE post_id='$post_id'");
+    if($query){
+      $return['error']=0;
+    }else{
+      $return['error']=1;
+      $return['err_msg']="Edit couldn't be completed";
+    }
+    //echo mysql_error();
+    return json_encode($return);
+  }
 ?>

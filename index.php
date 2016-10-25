@@ -1,7 +1,5 @@
 <?php
-  include("connection/connect.php");
-  include("functions/user.func.php");
-  include("functions/article.func.php");
+  include("functions.php");
 
   print_r(getUser(1));
 ?>
@@ -121,7 +119,7 @@
 </div>
 <div class="clear"></div>
 </div>
-<?php //include("info.php"); ?>
+<?php include("newsbar.php"); ?>
 <?php include("footer.php"); ?>
 </body>
 </html>

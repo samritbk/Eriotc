@@ -59,7 +59,7 @@ $(document).ready(function(){
           </tr>
         </table>
         <h3>Posts</h3>
-        <div style="margin:20px 0px;"><a href="addArticle.php" class="button">Add Article</a></div>
+        <div style="margin:20px 0px;"><a href="addPost.php" class="button">Add Post</a></div>
         <table class="data_T" style="width:100%;">
             <thead style="text-align:center;">
               <td>Post Id</td><td>Post Title</td><td>Post Category</td><td>View</a></td><td>Edit</td><td>Deactivate</td>

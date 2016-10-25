@@ -459,17 +459,17 @@
 		regionalOptions: { // Available regional settings, indexed by language/country code
 			'': { // Default regional settings - English/US
 				renderer: {}, // this.defaultRenderer
-				prevText: '&lt;Prev',
+				prevText: '&lt;ዝሓልፈ',
 				prevStatus: 'Show the previous month',
 				prevJumpText: '&lt;&lt;',
 				prevJumpStatus: 'Show the previous year',
-				nextText: 'Next&gt;',
+				nextText: 'ንዝማጽ&gt;',
 				nextStatus: 'Show the next month',
 				nextJumpText: '&gt;&gt;',
 				nextJumpStatus: 'Show the next year',
 				currentText: 'Current',
 				currentStatus: 'Show the current month',
-				todayText: 'Today',
+				todayText: 'ሎሚ',
 				todayStatus: 'Show today\'s month',
 				clearText: 'Clear',
 				clearStatus: 'Clear all the dates',
