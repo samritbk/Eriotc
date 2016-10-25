@@ -9,7 +9,7 @@
 		<div style="width:90%; margin:auto;">
 						<img src="eotc-logo.png" style="height:100px; float: left;">
 						<div style="height: 100px;
-    line-height: 100px; float:left;  margin-left: 20px;font-weight: 600;font-size: 26px;">ማህበር ኪዳነ ምህረት - ካምፓላ</div>
+    line-height: 100px; float:left;  margin-left: 20px;font-weight: 600;font-size: 26px;">ማሕበር ኪዳነ ምህረት - ካምፓላ</div>
 						<div class="date" style="height: 100px;
     line-height: 100px; float:right;font-size: 19px; font-size: 18px;
     letter-spacing: 1;"></div>

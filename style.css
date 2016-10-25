@@ -140,7 +140,7 @@ ul.subnav li{
     border-radius:0px;
 }
 ul.subnav li:hover{
-    background: #2436a7 !important;
+    background: #555 !important;
 }
 
 .header ul li:hover ul.subnav{
