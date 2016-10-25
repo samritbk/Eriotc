@@ -20,18 +20,27 @@ $(document).ready(function(){
   $('.saveEd').click(function(){
     var editTitle=$('#editTitle').val();
     var editText=$('#editText').val();
-    var aid=$('#aid').val();
+    var id=$('#id').val();
     var uid=$('#uid').val();
-
-    $.post('request.php',{editText:editText,editTitle:editTitle,aid:aid,uid:uid},function(data){
-      if(data.error != 0){
-        alert("There was an error");
-      }else{
-        window.location.href='home.php';
+    var mode=$('#mode').val();
+      if(mode == 0){
+        $.post('request.php',{editText:editText,editTitle:editTitle,aid:id,uid:uid},function(data){
+          if(data.error != 0){
+            alert("There was an error");
+          }else{
+            window.location.href='home.php';
+          }
+        },'JSON');
+      }else if(mode == 1){
+        $.post('request.php',{editText:editText,editTitle:editTitle,pid:id,uid:uid},function(data){
+          if(data.error != 0){
+            alert("There was an error");
+          }else{
+            window.location.href='home.php';
+          }
+        },'JSON');
       }
-    },'JSON');
-
-  });
+    });
 });
 </script>
 <body style="background:whitesmoke;">
@@ -55,13 +64,23 @@ $(document).ready(function(){
         <?php
         if(isset($_GET['article_id'])){
           $article=getArticle($_GET['article_id']);
+          $mode=0;
+          $title=$article['article_title'];
+          $text=$article['article_text'];
+        }else if(isset($_GET['post_id'])){
+          $post=getPost($_GET['post_id']);
+          $mode=1;
+          $id=$post['post_id'];
+          $title=$post['post_title'];
+          $text=$post['post_text'];
         }
         ?>
         <legend>Title</legend>
-        <input type="text" id="editTitle" value="<?php echo $article['article_title']; ?>" style="width:60%; font-size:16;"/><p/>
+        <input type="text" id="editTitle" value="<?php echo $title; ?>" style="width:60%; font-size:16;"/><p/>
         <legend>Article text</legend>
-        <textarea id="editText" style="width:100%; font-size:16;" rows="35"><?php echo str_replace("<br />","",$article['article_text']) ; ?></textarea>
-        <input type="hidden" name="aid" value="<?php echo $article['article_id']; ?>" id="aid"/>
+        <textarea id="editText" style="width:100%; font-size:16;" rows="35"><?php echo str_replace("<br />","",$text); ?></textarea>
+        <input type="hidden" name="post" value="<?php echo $mode; ?>" id="mode"/>
+        <input type="hidden" name="id" value="<?php echo $id; ?>" id="id"/>
         <input type="hidden" name="uid" value="<?php echo $uid; ?>" id="uid"/>
         <div style="margin:20px 0px;">
           <a class="button saveEd">Save Edit</a>
