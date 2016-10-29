@@ -78,4 +78,30 @@
     //echo mysql_error();
     return json_encode($return);
   }
+  function writePost($post_title, $post_text, $post_author, $catId, $email_notification=0){
+    $return=array();
+    $post_title=nl2br(mysql_real_escape_string(addslashes(trim($post_title))));
+    $post_text=nl2br($post_text);
+    $post_text=mysql_real_escape_string(addslashes(trim($post_text)));
+    $catId=(int) $catId;
+    $post_author=(int) $post_author;
+    $timestamp = time();
+
+    if($post_author != 0){
+      $query= mysql_query("INSERT INTO
+        posts(post_title,post_text,post_author_id,post_category,date_created,last_modified)
+        VALUES ('$post_title','$post_text','$post_author','$catId','$timestamp','$timestamp')");
+      if($query){
+        $return['error']=0;
+        $return['last_id']=mysql_insert_id();
+      }else{
+        $return['error']=0;
+        $retutn['err_msg']="Database error. Please try again later";
+      }
+    }else{
+      $return['error']=1;
+      $return['err_msg']="User not verified";
+    }
+    return json_encode($return);
+  }
 ?>

@@ -5,7 +5,7 @@
 <div style="float:left;"><a href="admin/" class="lang">Login</a></div>
 <a href="#" class="lang">ትግርኛ</a> | <a href="#" class="lang" style="font-size:14px;">English</a>
 </div>
-	<div style="background: transparent; padding: 10px 0px;">
+	<div style="background: #FFF; padding: 10px 0px;">
 		<div style="width:90%; margin:auto;">
 						<img src="eotc-logo.png" style="height:100px; float: left;">
 						<div style="height: 100px;
@@ -27,19 +27,26 @@
 				<ul class="subnav">
 					<li style="position:relative;">5 አዕማደ ምስጢር
 						<ul class="subsub" style="">
-						<li>dafsdas</li>
-						<li>dafsdsfa</li>
-						<li>adfsdfsa</li>
-						<li>dafsdas</li>
-						<li>dafsdsfa</li>
-						<li>adfsdfsa</li>
-					</ul></li>
+							<li>dafsdas</li>
+						</ul>
+				</li>
 					<li>7 ምስጢራተ ቤተክርስቲያን</li>
 					<li>ካልኦት ትምህርትታት</li>
 				</ul>
 			</li>
 		</a>
-			<a href="#"><li><div style="padding:0px 25px;">ጸሎታት</div></li></a>
+			<a href="#">
+				<li><div style="padding:0px 25px;">ጸሎታት</div>
+					<ul class="subnav" style="">
+						<li>ገኣፖ</li>
+						<li>ስድፍስ</li>
+						<li>adfsdfsa</li>
+						<li>dafsdas</li>
+						<li>dafsdsfa</li>
+						<li>adfsdfsa</li>
+					</ul>
+				</li>
+		</a>
 			<a href="#"><li><div style="padding:0px 25px;">ስብከት ወንጌል</div></li></a>
 			<a href="#"><li><div style="padding:0px 25px;">ነገረ ቅዱሳን</div></li></a>
 			<a href="#"><li><div style="padding:0px 25px;">ስነ - ጽሑፍ</div></li></a>
@@ -61,8 +68,8 @@
 	<div class="clear"></div>
 </div>
 <link rel='stylesheet' href="style.css" type='text/css' media='all' />
-<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
-<!-- <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
 <link rel="stylesheet" href="css/jquery.calendars.picker.css">
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/jquery.plugin.js"></script>

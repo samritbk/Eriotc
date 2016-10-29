@@ -69,14 +69,8 @@
 </div>
   <div class="clear"></div>
   	</div>
-    <div style="height: 200px; background:#148585;">
-    	<div style="float: left;
-        height: 100%;
-        width: 30%;">a</div>
-    	<div style="float: left;
-        height: 100%;
-        width: 70%;">a</div>
-    </div>
   </div>
+  <?php include("info.php"); ?>
+  <?php include("footer.php"); ?>
 </body>
 </html>

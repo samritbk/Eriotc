@@ -20,9 +20,13 @@ $(document).ready(function(){
   $('.addEd').click(function(){
     var addTitle=$('#addTitle').val();
     var addText=$('#addText').val();
+    //var catId=$('input[name=catId]:checked').val();
+    var catId=$("#catId").val();
     var uid=$('#uid').val();
 
-    $.post('request.php',{addText:addText,addTitle:addTitle,uid:uid},function(data){
+
+    $.post('request.php',{addPostText:addText,addPostTitle:addTitle,catId:catId,uid:uid},function(data){
+      console.log(data);
       if(data.error != 0){
         alert("There was an error");
       }else{
@@ -58,10 +62,12 @@ $(document).ready(function(){
         ?>
         <input type="text" id="addTitle" style="width:60%; font-size:16;" placeholder="Title"/><p/>
         <textarea id="addText" style="width:100%; font-size:16;" rows="35" placeholder="Post text"></textarea>
-        <input type="radio" name="catId" value="1" title="Category 1"/> Category 1
-        <input type="radio" name="catId" value="2" title="Category 2"/> Category 2
-        <input type="radio" name="catId" value="3" title="Category 3"/> Category 3
         <input type="hidden" name="uid" value="<?php echo $uid; ?>" id="uid"/>
+        <select name="catId" id="catId">
+          <option value="1">Category 1</option>
+          <option value="2">Category 2</option>
+          <option value="3">Category 3</option>
+        </select>
         <div style="margin:20px 0px;">
           <a class="button addEd">Save Post</a>
           <div class="clear"></div>

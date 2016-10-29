@@ -21,7 +21,7 @@
       }
         return $return;
   }
-  function getArticleShort($article_id){ //array
+  function getArticleShort($article_id,$limit=500){ //array
     $return = array();
     $article_id=(int) $article_id;
 
@@ -31,9 +31,9 @@
         $row = mysql_fetch_assoc($query);
         $return['error']=0;
 
-        if(strlen($row['article_text']) > 500){
+        if(strlen($row['article_text']) > $limit){
 
-          $return['article_short'] = substr($row['article_text'], 0, 500)."...";
+          $return['article_short'] = substr($row['article_text'], 0, $limit)."...";
         }else{
           $return['article_short'] = $row['article_text'];
 
@@ -82,7 +82,7 @@
       $return['error']=1;
       $return['err_msg']="Edit couldn't be completed";
     }
-    echo mysql_error();
+    //echo mysql_error();
     return json_encode($return);
   }
   function getArticles($limit=0, $order=0){

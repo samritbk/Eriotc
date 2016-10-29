@@ -4,4 +4,5 @@
   include("functions/user.func.php");
   include("functions/post.func.php");
   include("functions/news.func.php");
+  include("functions/search.func.php");
 ?>

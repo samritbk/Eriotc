@@ -16,8 +16,11 @@
     <h2 class="left">ቅድመ ገጽ</h2>
     <div class="right" style="line-height:64px; height:100%; display: table-cell;
     vertical-align: middle;">
-    <i class="ion-search" style="font-size:16px; margin-right:10px;" ></i>
-    <input type="search" style="margin-top: 22px;" placeholder="ጽሑፋት ድለ"/></div>
+      <div class="searchBoxCover">
+        <i class="ion-search" style="font-size:16px; margin-right:10px;" ></i>
+        <input type="search" placeholder="ጽሑፋት ድለ"/>
+      </div>
+    </div>
     <div class="clear"></div>
   </div>
 </div>
@@ -120,6 +123,7 @@
 <div class="clear"></div>
 </div>
 <?php include("newsbar.php"); ?>
+<?php include("info.php"); ?>
 <?php include("footer.php"); ?>
 </body>
 </html>

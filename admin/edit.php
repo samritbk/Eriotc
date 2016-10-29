@@ -28,7 +28,7 @@ $(document).ready(function(){
           if(data.error != 0){
             alert("There was an error");
           }else{
-            window.location.href='home.php';
+            //window.location.href='home.php';
           }
         },'JSON');
       }else if(mode == 1){
@@ -65,6 +65,7 @@ $(document).ready(function(){
         if(isset($_GET['article_id'])){
           $article=getArticle($_GET['article_id']);
           $mode=0;
+          $id=$article['article_id'];
           $title=$article['article_title'];
           $text=$article['article_text'];
         }else if(isset($_GET['post_id'])){
