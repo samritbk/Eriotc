@@ -129,5 +129,23 @@ function subscribe($email){
     }
    return json_encode($return);
 }
+//Suggestion Box Along with its Email box of the suggestee
 
+function suggest($suggestion,$email){
+   $return=array();
+   $suggestion=mysql_real_escape_string(trim($suggestion));
+   $email=mysql_real_escape_string(trim($email));
+
+   $time=time();
+
+     $query=mysql_query("INSERT INTO suggestionbx(suggest,email,timestamp) VALUES ('$suggestion','$email','$time')");
+     if($query){
+       $return['error'] = 0;
+     }else{
+        $return['error'] = 1;
+        $return['err_msg'] = "Database error. Try again!";
+        $return['error_code']="0x0000";
+      }
+       return json_encode($return);
+}
 ?>

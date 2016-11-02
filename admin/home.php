@@ -66,7 +66,7 @@ $(document).ready(function(){
             </thead>
             <tbody>
               <?php
-                $posts=getPostsByCategory(5);
+                $posts=getPostsByCategory(0);
                 $count=count($posts);
                 for($i=0; $i < $count; $i++){
               ?>

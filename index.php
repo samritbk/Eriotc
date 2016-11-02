@@ -43,8 +43,10 @@
 	</section>
 	<section>
     <p>ሕቶ ወይ ርእይቶ</p>
-		<textarea rows="10" class="views" placeholder="ሕቶ ወይ ርእይቶ..."></textarea></p>
-		<input type="button" value="ስደድ" class="button"/>
+    <span id="suggmsg"></span>
+		<textarea rows="10" class="views" id="suggText" placeholder="ሕቶ ወይ ርእይቶ..."></textarea></p>
+    <input type="text" class="views" id="suggEmail" placeholder="example@example.com"/></p>
+		<input type="button" value="ስደድ" id="suggId" class="button"/>
 </section>
 <section>
 	<div class="left social-icons">
@@ -89,14 +91,13 @@
 <div class="mainRight right">
 	<section>
 	<div class="quoteOfTheDay" id="inlineDatepicker">
-
 			<!-- <p>ንይ ሎሚ ትምህርቲ</p>
 			<div class="quoteOfTheDayText">
 				ንጽባሕቱ ሰዓት 5 ድ.ቀ ሳሚ ካብ ዲያቆን ዘተቀበላ ደብዳቤ ተሰኪሙ ናብ እንዳ ቤዛ ከደ። ቤዛ ጸብሒ ክስትሰርሕ ከም ዝጸንሐት  እቲ ካብ ርሑቅ ኮንካ  ዝሽትት ዘነበረ ጨና ሽሮ ይምስክር። ናይ ኽሽነ ኣቁሑት
 			</div>
 			<p class="quoteOfTheDayVerse">ማት 15:15-65</p> -->
 	</div>
-  <a href="#" id="date8">8</a>
+  <!-- <a href="#" id="date8">8</a> -->
 </section>
 <section>
 	<p>ናይ ሎሚ በዓል</p>

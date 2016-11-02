@@ -29,13 +29,18 @@
     }
     return $return;
   }
-  function getPostsByCategory($post_category, $limit=0, $order=0){
+  function getPostsByCategory($post_category=0, $limit=0, $order=0){
     $return=array();
+    $post_category=(int) $post_category;
     $limit=(int) $limit;
     $order=(int) $order;
+    $WHERE="";
     $addon="";
 
     $mainQuery = "SELECT * FROM posts";
+    if($post_category != 0){
+      $WHERE=" WHERE post_category=$post_category";
+    }
     if($order != 0 && $limit != 0){
       $addon=" ORDER BY post_id ASC LIMIT $limit";
     }else if($order != 0 && $limit == 0){
@@ -45,7 +50,7 @@
     }else if($order == 0 && $limit == 0){
         $addon=" ORDER BY post_id DESC";
     }
-    $query=mysql_query($mainQuery.$addon);
+    $query=mysql_query($mainQuery.$WHERE.$addon);
     while($row=mysql_fetch_assoc($query)){
       $return[]=array(
         "post_id"=>$row['post_id'],
@@ -103,5 +108,30 @@
       $return['err_msg']="User not verified";
     }
     return json_encode($return);
+  }
+  function getCategoryName($cat_id=0){
+    $return=null;
+    $cat_id=(int) $cat_id;
+
+    switch($cat_id){
+      case 0:
+      $return=array(
+        0 => "5 አዕማደ ምስጢር",
+        1 => "7 ምስጢራተ ቤተክርስቲያን",
+        2 => "ካልኦት ትምህርትታት"
+      );
+      break;
+      case 1:
+        $return="5 አዕማደ ምስጢር";
+      break;
+      case 2:
+        $return="7 ምስጢራተ ቤተክርስቲያን";
+      break;
+      case 3:
+        $return="ካልኦት ትምህርትታት";
+      break;
+    }
+
+    return $return;
   }
 ?>

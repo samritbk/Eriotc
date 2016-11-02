@@ -31,6 +31,30 @@ input[type="search"]{
 input[type="search"]:focus{
   /*width: 250px;*/
 }
+select{
+  margin: 10px 5px;
+  padding: 5px;
+  border-radius: 3px;
+}
+.col-3{
+  width:33.3%; margin:20px 0px;
+  float: left;
+}
+.post-box{
+  width:90%; margin:auto;
+  height: 250px;
+  position:relative;
+  background:whitesmoke;
+  background:url(kidanemihret.jpg);
+  background-size:cover;
+  box-shadow: 2px 2px 3px #CCC;
+}
+.post-box-title{
+  background:whitesmoke; position:absolute; bottom:0; right:0; left:0; height:50px; line-height:50px; padding:0px 5px;
+}
+.navLink, .navLink:hover{
+  color: #FFF;
+}
 input[type="button"], input[type="submit"]{
   padding: 10px 15px !important;
   border: 1px solid #CCC;
@@ -44,6 +68,9 @@ img{
 }
 .error{
   color: #d02929;
+}
+.err{
+  border: 1px solid #d02929 !important;
 }
 .success{
   color: #2baf4d;
@@ -133,6 +160,7 @@ ul.subnav{
   position: absolute;
     overflow: visible;
     width: auto;
+    z-index: 2;
 }
 ul.subnav li{
   float: none;
@@ -153,9 +181,10 @@ ul.subnav li:hover .subsub{
 .subsub{
   position: absolute;
 float: left;
-left: 190;
+left: 100%;
 top: 0;
 display:none;
+z-index: 2;
 }
 #date{
   background: #3949AB;
@@ -284,9 +313,9 @@ ul.left-nav li:last-child{
   border: 0px;
 }
 ul.left-nav li:hover{
-  background: #FCFCFC;
-  color: #24b3b5;
-  text-decoration: underline;
+  background: whitesmoke;
+  /*color: #24b3b5;
+  text-decoration: underline;*/
 }
 .content .marginer .left{
   width: 75%;;
@@ -411,6 +440,52 @@ td a{
 }
 td a:hover{
   text-decoration: underline;
+}
+
+.newsBar{
+  height:300px; background:whitesmoke; box-shadow:inset 1px 2px 5px #CCC; padding:25px 0px; background-size:cover;
+}
+.newsIntro{
+  float: left;
+  height: 100%;
+  width: 20%;
+}
+.newsIntro h3{
+  margin:0px; padding:0px 15px; color:#333;
+}
+.newsIntro p{
+  color:#333; padding:0px 15px; font-size:18px;
+}
+.newsBoxWrapper{
+  float: left;
+  height: 100%;
+  width: 80%;
+}
+.newsBoxCol{
+  height: 100%; width: 33%; float: left;
+}
+.newsBox{
+  box-shadow: 3px 2px 5px #FCFCFC;
+  height: 100%;
+  width: 95%;
+  background: whitesmoke;
+  margin:auto;
+  background:url(kidanemihret.jpg);
+  background-size:cover;
+  position:relative;
+}
+.newsBoxTitle{
+  color: #F2F2F2;
+  line-height: 50px;
+  padding-left: 10px;
+  height:50px;
+  margin-top:5%;
+  font-size:18px;
+  position:absolute;
+  bottom:0;
+  right: 0;
+  left:0;
+  background:#333;
 }
 @media only screen and (max-width: 950px){
   .content .marginer .left{

@@ -125,7 +125,7 @@ button.calendars-cmd {
 	text-align: center;
 }
 .calendars-month-header, .calendars-month-header select, .calendars-month-header input {
-	height: 1.5em;
+	height: 3em;
 	background-color: #303F9F;
 	color: #fff;
 	font-weight: bold;
@@ -140,7 +140,7 @@ button.calendars-cmd {
 	color: #333;
 }
 .calendars-month-header select, .calendars-month-header input {
-	height: 1.4em;
+	height: 1.8em;
 	border: none;
 }
 .calendars-month-header input {

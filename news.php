@@ -1,7 +1,5 @@
 <?php
-  include("connection/connect.php");
-  include("functions/user.func.php");
-  include("functions/news.func.php");
+  include("functions.php");
 ?>
 <html>
 <head>
@@ -56,7 +54,7 @@
   for($i=0; $i < $count; $i++){
     if($newses[$i]['news_id'] != $current_newsid ){
   ?>
-    <div class="NewsBox">
+    <div class="news">
       <h3><a href="news.php?id=<?php echo $newses[$i]['news_id']; ?>"><?php echo $newses[$i]['news_title']; ?></a></h3>
       <div> ጥቅምቲ 2009</div>
       <hr></hr>

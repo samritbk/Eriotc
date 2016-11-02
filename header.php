@@ -1,7 +1,8 @@
+<?php include_once("functions.php"); ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="header">
-<div style="width:90%; margin:auto; text-align:right; height:auto; background:transparent; color:#FFF;">
+<div style="width:90%; margin:auto; text-align:right; height:auto; color:#FFF;">
 <div style="float:left;"><a href="admin/" class="lang">Login</a></div>
 <a href="#" class="lang">ትግርኛ</a> | <a href="#" class="lang" style="font-size:14px;">English</a>
 </div>
@@ -25,11 +26,21 @@
 				<li>
 				<div style="padding:0px 25px;">ትምህርተ ሃይማኖት</div>
 				<ul class="subnav">
-					<li style="position:relative;">5 አዕማደ ምስጢር
+					<a class="navLink" href="post.php?cat_id=1"><li style="position:relative;">
+					5 አዕማደ ምስጢር
 						<ul class="subsub" style="">
-							<li>dafsdas</li>
+							<?php
+								$posts=getPostsByCategory(1,0,1);
+								$count=count($posts);
+								for($i=0;$i < $count; $i++){
+									?>
+									<a href="post.php?post_id=<?php echo $posts[$i]['post_id']; ?>"><li><?php echo $posts[$i]['post_title']; ?></li></a>
+									<?php
+								}
+							?>
 						</ul>
 				</li>
+				</a>
 					<li>7 ምስጢራተ ቤተክርስቲያን</li>
 					<li>ካልኦት ትምህርትታት</li>
 				</ul>
@@ -38,11 +49,14 @@
 			<a href="#">
 				<li><div style="padding:0px 25px;">ጸሎታት</div>
 					<ul class="subnav" style="">
-						<li>ገኣፖ</li>
+						<li>ገኣፖ
+							<ul class="subsub">
+								<li>adfsdfsa</li>
+								<li>dafsdas</li>
+								<li>dafsdsfa</li>
+							</ul>
+						</li>
 						<li>ስድፍስ</li>
-						<li>adfsdfsa</li>
-						<li>dafsdas</li>
-						<li>dafsdsfa</li>
 						<li>adfsdfsa</li>
 					</ul>
 				</li>
@@ -74,6 +88,7 @@
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/jquery.plugin.js"></script>
 <script src="js/jquery.calendars.js"></script>
+<script src="js/js.js"></script>
 <script src="js/jquery.calendars.plus.js"></script>
 <script src="js/jquery.calendars.picker.js"></script>
 <script src="js/jquery.calendars.ethiopian.js"></script>
