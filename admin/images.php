@@ -17,6 +17,14 @@
 <script type="text/javascript">
 $(document).ready(function(){
 
+  $('#relations').click(function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    var id=$(this).attr('data-b');
+
+    alert(id);
+  });
+
   $('.addEd').click(function(){
     $('#addTitle').removeClass('err');
     $('#addText').removeClass('err');
@@ -90,6 +98,7 @@ document.onselectionchange=function(){
           uploadImage($image, $imagedesc);
         }
         ?>
+        <div class="col-3">
         <div class="error" style="padding: 15px 0px;"></div>
         <form action="" method="post" enctype="multipart/form-data">
         <input type="text" name="imgDesc" style="font-size:16;" placeholder="Description"/>
@@ -97,9 +106,30 @@ document.onselectionchange=function(){
         <input type="hidden" name="uid" value="<?php echo $uid; ?>" id="uid"/>
         <input type="submit" value="Upload">
       </form>
-        <div style="margin:20px 0px;">
+    </div>
+
+          <?php
+            $images=getImages(0,0);
+            $count=count($images);
+
+            for($i=0; $i < $count; $i++){
+              $image=$images[$i]['img_name'];
+              ?>
+              <div class="col-3" style="height:250px; overflow:hidden; width:33%;">
+                <div style="height:80%; background:url(../images/<?php echo $image; ?>); background-size:cover;">
+                  <!-- <img src="../images/<?php //echo $image; ?>" style="max-width:90%; max-height:100%;"/> -->
+                </div>
+                <div style="height:20%;">
+                  <div style="background:#f25; background:transparent;">
+                    <a href="#" id="relations" class="readMoreButton" data-b="<?php echo $images[$i]['image_id'];?>">Add Relation</a>
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              </div>
+              <?php
+            }
+          ?>
           <div class="clear"></div>
-        </div>
       </div>
     </div>
 </body>
