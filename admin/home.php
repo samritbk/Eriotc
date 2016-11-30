@@ -35,7 +35,7 @@ $(document).ready(function(){
       <a href="#">Posts</a>
     </div>
       <div style="padding:20px; background:#FFF;">
-        <h3>Articles</h3>
+        <h3 id="articles">Articles</h3>
         <div style="margin:20px 0px;"><a href="addArticle.php" class="button">Add Article</a></div>
         <table class="data_T" style="width:100%;">
             <thead style="text-align:center;">
@@ -58,7 +58,31 @@ $(document).ready(function(){
             </tbody>
           </tr>
         </table>
-        <h3>Posts</h3>
+        <h3 id="news">News</h3>
+        <div style="margin:20px 0px;"><a href="addNews.php" class="button">Add News</a></div>
+        <table class="data_T" style="width:100%;">
+            <thead style="text-align:center;">
+              <td>News Id</td><td>News Title</td><td>View</a></td><td>Edit</td><td>Deactivate</td>
+            </thead>
+            <tbody>
+              <?php
+                $newses=getNewses(5);
+                $count=count($newses);
+                for($i=0; $i < $count; $i++){
+              ?>
+              <tr>
+                <td><?php echo $newses[$i]['news_id'] ?></td>
+                <td><?php echo $newses[$i]['news_title'] ?></td>
+                <td><a href="../news.php?id=<?php echo $newses[$i]['news_id']; ?>" target="_blank">View</a></td>
+                <td><a href="edit.php?news_id=<?php echo $newses[$i]['news_id']; ?>">Edit</a></td>
+                <td><a id="deactive" dataId="<?php echo $newses[$i]['news_id'] ?>">Deactivate</a></td>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </tr>
+        </table>
+
+        <h3 id="posts">Posts</h3>
         <div style="margin:20px 0px;"><a href="addPost.php" class="button">Add Post</a></div>
         <table class="data_T" style="width:100%;">
             <thead style="text-align:center;">
@@ -74,7 +98,7 @@ $(document).ready(function(){
                 <td><?php echo $posts[$i]['post_id']; ?></td>
                 <td><?php echo $posts[$i]['post_title']; ?></td>
                 <td><?php echo $posts[$i]['post_category']; ?></td>
-                <td><a href="#" target="_blank">View</a></td>
+                <td><a href="post.php?post_id=<?php echo $posts[$i]['post_id']; ?>" target="_blank">View</a></td>
                 <td><a href="edit.php?post_id=<?php echo $posts[$i]['post_id']; ?>">Edit</a></td>
                 <td><a id="deactive" dataId="<?php echo $posts[$i]['post_id'] ?>">Deactivate</a></td>
               </tr>

@@ -28,11 +28,20 @@ $(document).ready(function(){
           if(data.error != 0){
             alert("There was an error");
           }else{
-            //window.location.href='home.php';
+            window.location.href='home.php';
           }
         },'JSON');
       }else if(mode == 1){
         $.post('request.php',{editText:editText,editTitle:editTitle,pid:id,uid:uid},function(data){
+          if(data.error != 0){
+            alert("There was an error");
+          }else{
+            window.location.href='home.php';
+          }
+        },'JSON');
+      }
+      else if(mode == 2){
+        $.post('request.php',{editNewsText:editText,editNewsTitle:editTitle,nid:id,uid:uid},function(data){
           if(data.error != 0){
             alert("There was an error");
           }else{
@@ -65,15 +74,24 @@ $(document).ready(function(){
         if(isset($_GET['article_id'])){
           $article=getArticle($_GET['article_id']);
           $mode=0;
-          $id=$article['article_id'];
+          $id = $article['article_id'];
           $title=$article['article_title'];
           $text=$article['article_text'];
+
         }else if(isset($_GET['post_id'])){
           $post=getPost($_GET['post_id']);
           $mode=1;
           $id=$post['post_id'];
           $title=$post['post_title'];
           $text=$post['post_text'];
+        }
+
+        else if(isset($_GET['news_id'])){
+          $news=getNews($_GET['news_id']);
+          $mode=2;
+          $id=$news['news_id'];
+          $title=$news['news_title'];
+          $text=$news['news_text'];
         }
         ?>
         <legend>Title</legend>

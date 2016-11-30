@@ -70,8 +70,8 @@
     $return=array();
 
     $article_title=nl2br(mysql_real_escape_string($post_title));
-    $article_text=nl2br($post_text);
-    $article_text=mysql_real_escape_string($post_text);
+    $post_text=nl2br($post_text);
+    $post_text=mysql_real_escape_string($post_text);
 
     $query=mysql_query("UPDATE posts SET post_title='$post_title', post_text='$post_text', post_author_id='$postEditor' WHERE post_id='$post_id'");
     if($query){
@@ -118,7 +118,11 @@
       $return=array(
         0 => "5 አዕማደ ምስጢር",
         1 => "7 ምስጢራተ ቤተክርስቲያን",
-        2 => "ካልኦት ትምህርትታት"
+        2 => "ካልኦት ትምህርትታት",
+        3 => "ስብከተ ወንጌል",
+        4 => "ነገረ ቅዱሳን",
+        5 => "ብሂል ኣበው",
+        6 => "ስነ-ጽሑፍ"
       );
       break;
       case 1:
@@ -130,8 +134,44 @@
       case 3:
         $return="ካልኦት ትምህርትታት";
       break;
+      case 4:
+        $return = "ስብከት ወንጌል";
+      break;
+      case 5:
+        $return = "ነገረ ቅዱሳን";
+      break;
+      case 6:
+        $return = "ብሂል ኣበው";
+      break;
+      case 7:
+        $return = "ስነ-ጽሑፍ";
+        break;
     }
 
     return $return;
+  }
+  function getPostShort($post_id,$limit=300){ //array
+    $return = array();
+    $post_id=(int) $post_id;
+
+    $query= mysql_query("SELECT post_text FROM posts WHERE post_id=$post_id");
+    $num_rows=mysql_num_rows($query);
+      if($num_rows != 0){
+        $row = mysql_fetch_assoc($query);
+        $return['error']=0;
+
+        if(strlen($row['post_text']) > $limit){
+
+          $return['post_short'] = substr($row['post_text'], 0, $limit)."...";
+        }else{
+          $return['post_short'] = $row['post_text'];
+
+        }
+        // $return['last_activity'] = $row['last_activity'];
+      }else{
+        $return['error']=1;
+        $return['err_msg']="Can't find post";
+      }
+        return $return;
   }
 ?>

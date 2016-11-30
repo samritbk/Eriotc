@@ -6,6 +6,7 @@ include("../functions/user.func.php");
 include("../functions/article.func.php");
 include("../functions/post.func.php");
 include("../functions/news.func.php");
+include("../functions/image.func.php");
 
 function restricted(){
   header("Location:index.php");

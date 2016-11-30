@@ -18,20 +18,51 @@
 $(document).ready(function(){
 
   $('.addEd').click(function(){
-    var addTitle=$('#addTitle').val();
-    var addText=$('#addText').val();
+    $('#addTitle').removeClass('err');
+    $('#addText').removeClass('err');
+
+    var addTitle=trim($('#addTitle').val());
+    var addText=trim($('#addText').val());
     var uid=$('#uid').val();
 
-    $.post('request.php',{addText:addText,addTitle:addTitle,uid:uid},function(data){
-      if(data.error != 0){
-        alert("There was an error");
-      }else{
-        window.location.href='home.php';
+    if(addTitle.length != 0 && addText.length != 0 && uid != 0){
+        $.post('request.php',{addText:addText,addTitle:addTitle,uid:uid},function(data){
+          if(data.error != 0){
+            alert("There was an error");
+          }else{
+            window.location.href='home.php#articles';
+          }
+        },'JSON');
+    }else{
+      $('.error').html("Fill in all the feilds");
+      if(addTitle.length == 0){
+        $('#addTitle').addClass("err");
       }
-    },'JSON');
-
+      if(addText.length == 0){
+        $('#addText').addClass("err");
+      }
+    }
   });
-});
+
+  function getSelectionText() {
+    var text = "";
+    var activeEl = document.activeElement;
+    var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+    if (
+      (activeElTagName == "textarea" || activeElTagName == "input") &&
+      /^(?:text|search|password|tel|url)$/i.test(activeEl.type) &&
+      (typeof activeEl.selectionStart == "number")
+    ) {
+      text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+    } else if (window.getSelection) {
+        text = window.getSelection().toString();
+    }
+    return text;
+}
+document.onselectionchange=function(){
+    console.log(getSelectionText());
+}
+  });
 </script>
 <body style="background:whitesmoke;">
     <header style="height:100px; text-align:center; background:#455A64; position:relative;  color:#FFF;">
@@ -56,9 +87,11 @@ $(document).ready(function(){
           $article=getArticle($_GET['article_id']);
         }
         ?>
+        <div class="error" style="padding: 15px 0px;"></div>
         <input type="text" id="addTitle" style="width:60%; font-size:16;" placeholder="Title"/><p/>
         <textarea id="addText" style="width:100%; font-size:16;" rows="35" placeholder="Article text"></textarea>
         <input type="hidden" name="uid" value="<?php echo $uid; ?>" id="uid"/>
+        <a href="#" id="a">a</a>
         <div style="margin:20px 0px;">
           <a class="button addEd">Save Article</a>
           <div class="clear"></div>

@@ -71,7 +71,7 @@
   function editArticle($article_id,$article_title,$article_text,$articleEditor){
     $return=array();
 
-    $article_title=nl2br(mysql_real_escape_string($article_title));
+    $article_title=mysql_real_escape_string($article_title);
     $article_text=nl2br($article_text);
     $article_text=mysql_real_escape_string($article_text);
 
@@ -90,6 +90,7 @@
     $limit=(int) $limit;
     $order=(int) $order;
     $addon="";
+    $geezMonthName=array('01'=>'ጥሪ', '02'=>'የካቲት','03'=>'መጋቢት','04'=> 'ሚያዝያ', '05'=>'ግንቦት', '06'=>'ሰነ', '07'=>'ሓምለ','08'=>'ነሓሰ','09'=>'መስከረም', '10'=>'ጥቅምቲ','11'=>'ሕዳር', '12'=>'ታሕሳስ');
 
     $mainQuery = "SELECT * FROM articles";
     if($order != 0 && $limit != 0){
@@ -103,15 +104,24 @@
     }
     $query=mysql_query($mainQuery.$addon);
     while($row=mysql_fetch_assoc($query)){
+
       $return[]=array(
         "article_id"=>$row['article_id'],
         "article_title"=>$row['article_title'],
         "article_text"=>$row['article_text'],
         "article_author_id"=>$row['article_author_id'],
-        "date_created"=>$row['date_created'],
+        "date_created"=>gmdate("d",$row['date_created'])." ".$geezMonthName[gmdate("m",$row['date_created'])]." ".gmdate("Y",$row['date_created']),
         "last_modified"=>$row['last_modified']);
     }
 
     return $return;
+  }
+
+
+  function refactorText($rowText){
+    $replaced=str_replace("<***>","<b>",$rowText);
+    $replaced=str_replace("<****>","</b>",$replaced);
+
+    return $replaced;
   }
  ?>

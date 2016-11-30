@@ -148,4 +148,85 @@ function suggest($suggestion,$email){
       }
        return json_encode($return);
 }
+
+function subscribedMail($to,$from,$subject="Thank you for subscribing to our mailing list."){
+  $headers = "Content-Type: text/html; charset=UTF-8\r\n";
+  $headers .= "From:Mahber KidaneMihret Kampala <$from> \r\n";
+  $headers .= "Reply-To: $from \r\n";
+  $headers .= "MIME-Version: 1.0\r\n";
+
+  $messsage="<!DOCTYPE html>";
+  $messsage="<html><head><meta charset='UTF-8' /></head><body style:'background:whitesmoke !important; padding:25px;'>";
+  // $messsage.="<div style='margin:auto; background:#4dad7f; padding:25px 0px;'>";
+  // $messsage.="<div style='font-size:16px; width:90%; background:#FCFCFC; margin:auto; padding:15px;'>
+  //             <img src=\"http://localhost/church/small-eotc-logo.png\" align='center' width=\"50px\">";
+  // $messsage.="<p style='font-size:25px;'>ማሕበር ኪዳነ ምህረት - ካምፓላ</p>\n\r";
+  // $messsage.="<p style='font-size:18px;'>ሰላም እግዚኣብሄር ንዓኹም ይኹን</p>\n\r";
+  // $messsage.="<p style='font-size:18px;'>ኣብ ሊስታና ተመዝጊብኩም ኣለኹም። ኣብ ዚቐርብ ዕለታዊ ቃል ኣምላኽን ዜና ቤተክርስትያንን ንኽትከታተሉና ኣብ ኢሜልኩም ከነዘኻኽረኩም ኢና።</p>";
+  // $messsage.="<p>ክፍሊ ዌብሳይት<br/>ማሕበር ኪዳነ ምህረት - ካምፓላ</p>";
+  // $messsage.="</div>";
+  // $messsage.="</div>";
+  // $messsage.="</body></html>";
+  $messsage.='<div style="font-family:HelveticaNeue-Light,Arial,sans-serif;background-color:#eeeeee">
+  	<table align="center" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#eeeeee">
+      <tbody>
+          <tr>
+          	<td>
+                  <table align="center" width="750px" border="0" cellspacing="0" cellpadding="0" bgcolor="#eeeeee" style="width:750px!important">
+                  <tbody>
+                  	<tr>
+                      	<td>
+                  			<table width="690" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#eeeeee">
+                              <tbody>
+                              	<tr>
+                                      <td colspan="3" height="80" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#eeeeee" style="padding:0;margin:0;font-size:0;line-height:0">
+                                          <table width="690" align="center" border="0" cellspacing="0" cellpadding="0">
+                                          <tbody>
+                                            <tr height="40px;"></tr>
+                                          	<tr>
+                                              	<td width="30"></td>
+                                                  <td align="center" valign="middle" style="padding:0;margin:0;font-size:0;line-height:0"><a href="#" target="_blank"><img src="http://localhost/church/eotc-logo.png" align="center" width="100px"></a></td>
+                                                  <td width="30"></td>
+                                              </tr>
+                                         	</tbody>
+                                          </table>
+                                    	</td>
+                      			    </tr>
+                                  <tr>
+                                      <td colspan="3" align="center">
+                                          <table width="630" align="center" border="0" cellspacing="0" cellpadding="0">
+                                          <tbody>
+                                          	<tr>
+                                                  <td align="center">
+                                                      <h3 style="font-family:HelveticaNeue-Light,arial,sans-serif;font-size:26px;color:#404040;line-height:48px;font-weight:bold;margin:0;padding:0">ማሕበር ኪዳነ ምህረት - ካምፓላ</h3>
+                                                  </td>
+                                                  <td width="25"></td>
+                                              </tr>
+                                              <tr>
+                                              	<td colspan="3" height="40"></td></tr><tr><td colspan="5">
+                                                      <p style="font-size:18px;line-height:24px;font-weight:lighter;padding:0;margin:0">
+                                                      ሰላም እግዚኣብሄር ንዓኹም ይኹን
+                                                      <p style="font-size:18px;">ኣብ ሊስታና ተመዝጊብኩም ኣለኹም። ኣብ ቐረባ ዕለታዊ ቃል ኣምላኽን ፥ ዜና ቤተክርስትያንን ንኽትከታተሉና ኣብ ኢሜልኩም ከነዘኻኽረኩም ኢና።</p>
+                                                      </p><br>
+                                                      <p style="font-size:16px;line-height:22px;font-weight:lighter;padding:0;margin:0">
+                                                      ክፍሊ ዌብሳይት<br/>ማሕበር ኪዳነ ምህረት - ካምፓላ</p>
+                                                  </td>
+                                              </tr>
+                                              <tr height="40px;"></tr>
+                                   	</tbody>
+                                      </table>
+                               	</td>
+                     			</tr>
+   	</tbody>
+      </table>
+  </div>';
+  $messsage.="</body></html>";
+  echo $messsage;
+  $m=mail($to,$subject, $messsage, $headers);
+   if($m){
+     return true;
+   }else{
+     return false;
+   }
+}
 ?>

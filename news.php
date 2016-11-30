@@ -20,8 +20,8 @@
 		<div style="background: white; border-radius: 5px; margin:auto; overflow:hidden;">
 			<article>
 				<?php
-					if(isset($_GET['id']) && $_GET['id'] != 0){
-						$news = getNews($_GET['id']);
+					if(isset($_GET['news_id']) && $_GET['news_id'] != 0){
+						$news = getNews($_GET['news_id']);
 				?>
 						<h1><?php
 						if($news['error'] == 0){
@@ -50,12 +50,12 @@
   // put your box inside
   $newses=getNewses();
   $count=count($newses);
-  $current_newsid = $_GET['id'];
+  $current_newsid = $_GET['news_id'];
   for($i=0; $i < $count; $i++){
     if($newses[$i]['news_id'] != $current_newsid ){
   ?>
     <div class="news">
-      <h3><a href="news.php?id=<?php echo $newses[$i]['news_id']; ?>"><?php echo $newses[$i]['news_title']; ?></a></h3>
+      <h3><a href="news.php?news_id=<?php echo $newses[$i]['news_id']; ?>"><?php echo $newses[$i]['news_title']; ?></a></h3>
       <div> ጥቅምቲ 2009</div>
       <hr></hr>
   </div>

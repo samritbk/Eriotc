@@ -3,15 +3,30 @@ $( document ).ready(function() {
 		var calender = $.calendars.instance('ethiopian');
 
 		var d = calender.formatDate('DD ~ dd MM yyyy', calender.today());
-		var a=$('.date');
+		var a=$('.date1');
 		a.html(d);
 		a.append(' ዓ.ም.');
+    var b=$('.date2');
+    var date=new Date();
+
+    b.html(geezDateName[date.getDay()]+" ~ "+date.getDate()+" "+geezMonthName[date.getMonth()]+" "+date.getFullYear());
+
+    $('#search').keypress(function(event){
+      if (event.which == 13) {
+        var s=$(this).val();
+        window.location.href='search.php?s='+s;
+      }
+    });
 });
+
+var geezMonthName=['ጥሪ', 'የካቲት','መጋቢት', 'ሚያዝያ', 'ግንቦት', 'ሰነ', 'ሓምለ', 'ነሓሰ','መስከረም', 'ጥቅምቲ','ሕዳር', 'ታሕሳስ'];
+var geezDateName=['ሰንበት', 'ሰኑይ', 'ሰሉስ', 'ረቡዕ', 'ሓሙስ', 'ዓርቢ', 'ቀዳም'];
 function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
 }
 function subscribe(){
+  $('#emailid').removeClass('err');
   var email = $('#emailid').val();
     if(email != ""){
       if(isEmail(email)){
@@ -33,9 +48,11 @@ function subscribe(){
       }else{
         $('#msg').addClass("error").css('display','block');
         $('#msg').html("ኢሜል ልክዕ ኣይኮነን");
+        $('#emailid').addClass('err');
       }
     }else{
-      $('#msg').addClass("error").css('display','block').fadeOut(5000);
+      $('#emailid').addClass('err');
+      $('#msg').addClass("error").css('display','block');
       $('#msg').html("ኢሜል ኣይተመልአን");
     }
 }

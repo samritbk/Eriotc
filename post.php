@@ -57,7 +57,7 @@
     </div>
   </div>
 
-<div class="right" style="width:25%; background: #FFF; padding:5px 0px;">
+<div class="sideBar">
 
   <div style="background: white; border-radius:5px; margin:auto; overflow:hidden;">
   <?php
@@ -78,14 +78,13 @@
       <hr></hr>
       <div class="shortDesc">
         <?php
-          //$articleShort=getArticleShort($articles[$i]['article_id'],300);
-          //echo $articleShort['article_short'];
+          $postShort= getPostShort($posts[$i]['post_id'],300);
+          echo $postShort['post_short'];
         ?>
       </div>
-        <div class="articleBoxBottom">
-          <a href="post.php?post_id=<?php echo $posts[$i]['post_id']; ?>" class="readMoreButton">ምሉእ ትሕዝቶ</a><div class="clear"></div>
-        </div>
-
+      <div class="articleBoxBottom">
+        <a href="post.php?post_id=<?php echo $posts[$i]['post_id']; ?>" class="readMoreButton">ምሉእ ትሕዝቶ</a><div class="clear"></div>
+      </div>
   </div>
   <?php
   }
@@ -93,7 +92,7 @@
 }
   ?>
 </div>
-	<div style="background: white; border-radius:5px; width:97%; margin: auto; height:95%;">
+	<div class="sideBarSection">
 
 			<div class="articleBox">
         <h3>ካልኦት ጽሑፋት</h3>
@@ -101,7 +100,7 @@
           <?php
           $catNames=getCategoryName();
           $count=count($catNames);
-            for($i=0; $i < $count; $i++){
+            for($i=0; $i < 3; $i++){
           ?>
               <a href="post.php?cat_id=<?php echo $i+1; ?>"><li><?php echo $catNames[$i]; ?></li></a>
           <?php

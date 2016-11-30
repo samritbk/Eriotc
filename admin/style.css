@@ -1,0 +1,6 @@
+.error{
+  color: #d02929;
+}
+.err{
+  border: 1px solid #d02929 !important;
+}

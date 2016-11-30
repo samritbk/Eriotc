@@ -1,5 +1,4 @@
 <div class="newsBar">
-
 	<div class="newsIntro">
 		<h3>ዜና ቤተ ክርስቲያን</h3>
 		<p>ህሉው ኩነታት ቤተ ክርስቲያና</p>
@@ -20,8 +19,8 @@
               </div>
 							</a>
 
-              <div style="font-size:18px; position:absolute;line-height: 30px;height: 30px; right: 5; top: 5; background: #131313; padding: 0px 5px; color: #FCFCFC;">
-                  <?php echo gmdate("d-M-Y",$newses[$i]['date_created']); ?>
+              <div class="newsBoxDate">
+                  <?php echo gmdate("d",$newses[$i]['date_created']); ?>
               </div>
                 <!--<hr></hr>-->
       </div>

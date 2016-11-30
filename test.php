@@ -26,33 +26,35 @@
 </form>
 <p>
 <?php
-function htmail($to,$subject,$names,$conf,$email){
-
-  $headers = "From:LookOutSms <no-reply@lookoutsms.com> \r\n";
-  $headers .= "Reply-To: no-reply@lookoutsms.com \r\n";
-  $headers .= "MIME-Version: 1.0\r\n";
-  $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-
-
-  $messsage="<html><head></head><body>";
-  $messsage.="Hey ".$names."</br><p/>\r\n";
-  $messsage.="Your have requested for a new password, Please click the link below to reset your password.</br><p/>\r\n";
-  $messsage.="<a href='http://lookoutsms.com/reset_password.php?conf=".$conf."&r_email=".$email."' style=\"padding:10px; text-align:center;\">Change Password</a>";
-  $messsage.="</body></html>";
-
-  $m=mail($to,$subject, $messsage, $headers);
-  if($m){
-    return true;
-  }else{
-    return false;
-  }
-}
+// function htmail($to,$subject,$names,$conf,$email){
+//
+//   $headers = "From:LookOutSms <no-reply@lookoutsms.com> \r\n";
+//   $headers .= "Reply-To: no-reply@lookoutsms.com \r\n";
+//   $headers .= "MIME-Version: 1.0\r\n";
+//   $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+//
+//
+//   $messsage="<html><head><meta charset="UTF-8" /></head><body>";
+//   $messsage.="Hello there</br><p/>\r\n";
+//   $messsage.="Your have requested for a new password, Please click the link below to reset your password.</br><p/>\r\n";
+//   $messsage.="<a href='http://lookoutsms.com/reset_password.php?conf=".$conf."&r_email=".$email."' style=\"padding:10px; text-align:center;\">Change Password</a>";
+//   $messsage.="</body></html>";
+//
+//   $m=mail($to,$subject, $messsage, $headers);
+//   if($m){
+//     return true;
+//   }else{
+//     return false;
+//   }
+// }
   //htmail("sami@localhost","Hello","Sami Bicha","dafagfgd","sami@localhost");
-
   // $post=getPost(1);
   // print_r($post);
   // echo $post['post_title']+"<br/>";
   // echo $post['post_text'];
+//subscribedMail("sami@localhost","drogba20020@gmail.com")
+  //sendMail("dsadsa","dadsas");
+  $article=getArticle(11);
+  echo refactorText($article['article_text']);
 
-  sendMail("dsadsa","dadsas");
 ?>

@@ -1,7 +1,7 @@
 <?php
   include("functions.php");
 
-  print_r(getUser(1));
+  //print_r(getUser(1));
 ?>
 <html>
 <head>
@@ -18,7 +18,7 @@
     vertical-align: middle;">
       <div class="searchBoxCover">
         <i class="ion-search" style="font-size:16px; margin-right:10px;" ></i>
-        <input type="search" placeholder="ጽሑፋት ድለ"/>
+        <input id="search" type="search" placeholder="ጽሑፋት ድለ"/>
       </div>
     </div>
     <div class="clear"></div>
@@ -35,6 +35,12 @@
 			<li>dsfa</li>
 		</ul>
 	</div> -->
+  <section>
+    <p>
+        ማሕበርና ብ ሓገዝ ኣንበብትና ሰለትካየድ ብዝከኣለኩም መጠን ክትሕግዙና ብትሕትና ንላቦ።
+    </p>
+    <a href="#" class="readMoreButton" style="float:none; margin-top:5px; overflow:auto;">ሓግዙና</a>
+  </section>
 <section>
 	<p>ኢሜል ሳብስክሪብሽን</p>
   <span id="msg"></span>
@@ -70,7 +76,7 @@
 		?>
 			<div class="articleBox">
 				<h3><a href="article.php?id=<?php echo $articles[$i]['article_id']; ?>"><?php echo $articles[$i]['article_title']; ?></a></h3>
-				<div><?php echo gmdate("d-M-Y",$articles[$i]['date_created']); ?></div>
+				<div><?php echo $articles[$i]['date_created']; ?></div>
 				<hr></hr>
 				<div class="shortDesc">
 					<?php
@@ -87,8 +93,7 @@
 		?>
 	</div>
 </div>
-
-<div class="mainRight right">
+<div class="mainRight right" style="overflow:auto;">
 	<section>
 	<div class="quoteOfTheDay" id="inlineDatepicker">
 			<!-- <p>ንይ ሎሚ ትምህርቲ</p>
@@ -106,6 +111,7 @@
     line-height: 25px;">ንጽባሕቱ ሰዓት 5 ድ.ቀ ሳሚ ካብ ዲያቆን ዘተቀበላ ደብዳቤ ተሰኪሙ ናብ እንዳ ቤዛ ከደ።</p>
 </section>
 <section class="pastArticles">
+<div class="articleBox">
 <p>ዝሓለፋ ጽሑፋት</p>
 <ul class="left-nav">
   <?php $articles=getArticles(10); ?>
@@ -118,6 +124,7 @@
   }
   ?>
 </ul>
+</div>
 </section>
 <div class="clear"></div>
 </div>
@@ -126,5 +133,16 @@
 <?php include("newsbar.php"); ?>
 <?php include("info.php"); ?>
 <?php include("footer.php"); ?>
+<!-- <div style="position: fixed;
+    bottom: 10;
+    right: 10;
+    height: 50px;
+    width: 50px;
+    background: #131313;
+    border-radius: 50%;
+    line-height: 50px;
+    text-align: center;">
+^
+</div> -->
 </body>
 </html>

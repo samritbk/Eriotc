@@ -11,7 +11,8 @@
 .header{
   display: block;
   padding-bottom: 25px;
-  background: #2436a7;
+  background: url(sky.jpg) center;
+  /*background: #2436a7;*/
   /*background: background: rgba(36,54,115,1);*/
   width: 100%;
   line-height: 64px;
@@ -47,10 +48,17 @@ select{
   background:whitesmoke;
   background:url(kidanemihret.jpg);
   background-size:cover;
-  box-shadow: 2px 2px 3px #CCC;
+  box-shadow: 1px 1px 2px #CCC;
 }
 .post-box-title{
-  background:whitesmoke; position:absolute; bottom:0; right:0; left:0; height:50px; line-height:50px; padding:0px 5px;
+  background:whitesmoke;
+  position:absolute;
+  bottom:0;
+  right:0;
+  left:0;
+  height:50px;
+  line-height:50px;
+  padding: 0px 15px;
 }
 .navLink, .navLink:hover{
   color: #FFF;
@@ -68,6 +76,7 @@ img{
 }
 .error{
   color: #d02929;
+  margin: 10px 0px;
 }
 .err{
   border: 1px solid #d02929 !important;
@@ -80,9 +89,18 @@ img{
   margin-bottom: 10px;
   font-size: 16px;
 }
+.prayer .col-3{
+  font-size: 18px;
+  line-height: 25px;
+  font-family: 'Roboto', serif;
+}
+.prayer .col-3 h2{
+  text-align: center;
+}
 h2{
   margin: 0;
   font-size: 30px;
+  overflow: auto;
 }
 h3{
   font-size: 26px;
@@ -97,6 +115,7 @@ html, body, ul, li{
   box-shadow: 3px 0px 5px #CCC;
   width:100%; min-height:150px;
   padding-bottom: 15px;
+  overflow: auto;
 }
 .clear{
   clear: both;
@@ -229,7 +248,7 @@ img {
 .marginer{
   width:90%;
   margin:auto;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 h1{
   font-size: 2em;
@@ -240,10 +259,13 @@ h1{
   /*background: #FCFCFC;*/
 }
 .mainRight section{
-  width: 95%;
-  margin: auto;
+  /*width: 95%;
+  margin: auto;*/
   padding-bottom: 15px;
-  border-bottom: 1px solid #CCC;
+  /*border-bottom: 1px solid #CCC;*/
+}
+.mainRight section.pastArticles .articleBox{
+  padding: 5px 8px;
 }
 .mainRight section p{
   font-size: 22px;
@@ -357,10 +379,11 @@ ul.left-nav li:hover{
   margin:auto;
   word-wrap: break-all;
   margin-bottom: 15px;
+  margin-top: 10px;
 }
 .left-sidebar section p{
   font-weight: 100;
-  font-size: 22px;
+  font-size: 20px;
 }
 .social-icons{
   width:32%;
@@ -392,25 +415,28 @@ ul.left-nav li:hover{
   border-collapse: collapse;
 }
 .data_T thead{
-  background: whitesmoke;
+  background: #333;
 }
 .data_T thead tr td{
-	padding:8px 5px;
-	font-weight:bold;
-	border:none;
-	border-bottom:1px solid #CCC;
+  padding: 8px 5px;
+  /* font-weight: bold; */
+  border: none;
+  border-bottom: 1px solid #CCC;
+  color: #FCFCFC;
+  height: 40px;
+  text-shadow: 0px 2px 3px #131313;
 }
 .data_T tbody tr{
 	/*font-family: "Freight Sans", 'lucida grande',tahoma,verdana,arial,sans-serif !important;*/
 }
 .data_T tbody tr:nth-child(even){
-	background:#f2f7f8;
+	background:whitesmoke;
 }
 .data_T tbody tr:nth-child(even):hover{
 	background:#fff;
 }
 .data_T tbody tr:nth-child(odd):hover{
-	background:#f2f7f8;
+	background:whitesmoke;
 }
 .data_T tbody tr td{
 	padding:8px 5px;
@@ -443,12 +469,17 @@ td a:hover{
 }
 
 .newsBar{
-  height:300px; background:whitesmoke; box-shadow:inset 1px 2px 5px #CCC; padding:25px 0px; background-size:cover;
+  /*height: 300px; */
+    background: whitesmoke;
+    box-shadow: inset 1px 2px 5px #CCC;
+    padding: 25px 0px;
+    background-size: cover;
 }
 .newsIntro{
-  float: left;
+  /*float: left;
   height: 100%;
-  width: 20%;
+  width: 20%;*/
+  text-align: center;
 }
 .newsIntro h3{
   margin:0px; padding:0px 15px; color:#333;
@@ -457,25 +488,35 @@ td a:hover{
   color:#333; padding:0px 15px; font-size:18px;
 }
 .newsBoxWrapper{
-  float: left;
+  /*float: left;
   height: 100%;
-  width: 80%;
+  width: 80%;*/
 }
 .newsBoxCol{
-  height: 100%; width: 33%; float: left;
+  height: 300px;
+      width: 33.3%;
+      float: left;
 }
 .newsBox{
-  box-shadow: 3px 2px 5px #FCFCFC;
+  /*box-shadow: 3px 2px 5px #FCFCFC;
   height: 100%;
   width: 95%;
   background: whitesmoke;
   margin:auto;
   background:url(kidanemihret.jpg);
   background-size:cover;
-  position:relative;
+  position:relative;*/
+  box-shadow: 0px 1px 2px #CCC;
+    height: 100%;
+    width: 95%;
+    background: whitesmoke;
+    margin: auto;
+    background: url(kidanemihret.jpg);
+    background-size: cover;
+    position: relative;
 }
 .newsBoxTitle{
-  color: #F2F2F2;
+  /*color: #F2F2F2;
   line-height: 50px;
   padding-left: 10px;
   height:50px;
@@ -485,7 +526,131 @@ td a:hover{
   bottom:0;
   right: 0;
   left:0;
-  background:#333;
+  background:#333;*/
+  color: #333;
+    line-height: 50px;
+    padding-left: 10px;
+    height: 50px;
+    margin-top: 5%;
+    font-size: 18px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #FFF;
+}
+.newsBoxDate{
+  /*font-size:18px;
+  position:absolute;
+  line-height: 30px;
+  height: 30px;
+  right: 5;
+  top: 5;
+  background: #333;
+  padding: 0px 5px;
+  color: #FCFCFC;*/
+    font-size: 16px;
+    position: absolute;
+    line-height: 50px;
+    height: 50px;
+    border-radius: 50%;
+    right: 5;
+    top: 5;
+    background: #FFF;
+    /*padding: 0px 5px;*/
+    color: #333;
+    min-width: 50px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0px 1px 2px;
+}
+.topBar{
+  width:90%; margin:auto; text-align:right; height:auto; color:#FFF;
+}
+.lang.en{
+  font-size:14px;
+}
+.introBar{
+  background: transparent;
+  padding: 10px 0px;
+}
+.introBarMarginer{
+  width:90%; margin:auto;
+}
+.logo{
+  height:100px; float: left;
+}
+.logoName{
+  height: 100px;
+  line-height: 100px;
+  float:left;
+  margin-left: 20px;
+  font-weight: 600;
+  font-size: 26px;
+}
+.date{
+  height: 100px;
+  line-height: 40px;
+  float:right;
+  font-size: 18px;
+  letter-spacing: 1;
+}
+.date1, .date2{
+  color:#FFF;
+  text-align: right;
+}
+.liMarginer{
+  padding: 0px 1em;
+}
+.infoBar{
+  background: #252525;
+  color: #FCFCFC !important;
+  overflow: auto;
+}
+.infoCol-3{
+  width:33.2%; padding-bottom:15px; color:#FFF;
+}
+.infoWrapper{
+  width:90%; margin:auto; color:#FFF;
+}
+h3.infoHeader{
+  color: #FCFCFC !important;
+}
+.infoText{
+  color: #FCFCFC !important; text-align: justify; margin-bottom: 30px;
+}
+.infoBarButton{
+  background:transparent; border:1px solid #999; color:#999; padding:8px 12px; border-radius:5px;
+}
+.infoBarButton:hover{
+  color:#FCFCFC;
+  border-color:#FCFCFC;
+}
+.sideBar{
+  float: right;
+  width:25%; background: #FFF; padding:5px 0px;
+}
+footer{
+  min-height: 50px;
+      background: #191919;
+}
+.footerText{
+  line-height:50px; font-size:15px; color: #FFF; text-align:center; width:80%; margin:auto;
+}
+::selection {
+  background: #444; /* WebKit/Blink Browsers */
+  color: whitesmoke;
+}
+::-moz-selection {
+  background: #444; /* Gecko Browsers */
+  color: whitesmoke;
+}
+.col-2 {
+    float: left;
+    width: 50%;
+}
+.col-2 p{
+  font-size: 18px;
 }
 @media only screen and (max-width: 950px){
   .content .marginer .left{
@@ -499,6 +664,7 @@ td a:hover{
   }
   .mainContent{
     width: 100%;
+    margin-bottom: 20px;
   }
   .mainRight{
     float: none !important;
@@ -510,6 +676,99 @@ td a:hover{
     width: 50%;
   }
   .pastArticles{
+    display: none;
+  }
+  .sideBar{
+    width: 100%;
+    float: none;
+    clear: both;
+  }
+  .errorDun{
+      padding: 15px 0px;
+      color:#d02929;
+  }
+  .sideBarSection{
+    background: white; border-radius:5px; width:97%; margin: auto;
+  }
+  .infoCol-3{
+    float:none !important;
+    width:100%;
+  }
+  .newsBoxCol{
+    float: none !important;
+    width: 80%;
+    margin: 10px auto;
+  }
+  .logo{
+    margin-left: 40%;
+    float: none !important;
+  }
+  .logoName{
+    float: none !important;
+    width: 90%;
+    margin: 15px auto;
+    height: auto;
+    text-align: center;
+    line-height: normal;
+    vertical-align: middle;
+  }
+  .date{
+    float: none !important;
+    width: 90%;
+    max-height: 50px;
+    margin: auto;
+    text-align: center;
+    /*line-height: normal;*/
+  }
+  .nav{
+    display: none;
+  }
+  .nav ul li{
+    float: none;
+    text-align: center;
+  }
+  .col-3{
+    width:50%; margin:20px 0px;
+    float: left;
+  }
+  .mainRight{
+    overflow: auto;
+  }
+  .date1, .date2{
+    color:#333;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 550px){
+  .mainRight section{
+    width: 90%;
+    float: none;
+    margin: auto !important;
+  }
+  .calendars{
+    margin: auto;
+  }
+}
+@media only print{
+  .sideBar{
+    display: none;
+  }
+  .header{
+    display: none !important;
+  }
+  article{
+    width: 100%;
+    float: none;
+    display: block !important;
+    background: #FFF;
+  }
+  .content .marginer .left{
+    width: 100%;
+  }
+  .infoBar{
+    display: none;
+  }
+  .footer{
     display: none;
   }
 }
