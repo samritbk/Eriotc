@@ -35,12 +35,6 @@
 			<li>dsfa</li>
 		</ul>
 	</div> -->
-  <section>
-    <p>
-        ማሕበርና ብ ሓገዝ ኣንበብትና ሰለትካየድ ብዝከኣለኩም መጠን ክትሕግዙና ብትሕትና ንላቦ።
-    </p>
-    <a href="#" class="readMoreButton" style="float:none; margin-top:5px; overflow:auto;">ሓግዙና</a>
-  </section>
 <section>
 	<p>ኢሜል ሳብስክሪብሽን</p>
   <span id="msg"></span>
@@ -105,10 +99,10 @@
   <!-- <a href="#" id="date8">8</a> -->
 </section>
 <section>
-	<p>ናይ ሎሚ በዓል</p>
-	<p style="font-size: 16px;
-    word-wrap: break-word;
-    line-height: 25px;">ንጽባሕቱ ሰዓት 5 ድ.ቀ ሳሚ ካብ ዲያቆን ዘተቀበላ ደብዳቤ ተሰኪሙ ናብ እንዳ ቤዛ ከደ።</p>
+  <p>
+    ማሕበርና ብ ሓገዝ ኣንበብትና ሰለትካየድ ብዝከኣለኩም መጠን ክትሕግዙና ብትሕትና ንላቦ።
+  </p>
+  <a href="#" class="readMoreButton" style="float:none; margin-top:5px; overflow:auto;">ሓግዙና</a>
 </section>
 <section class="pastArticles">
 <div class="articleBox">

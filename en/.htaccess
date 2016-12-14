@@ -1,0 +1,14 @@
+# Turn Rewrite Engine On
+RewriteEngine on
+# Makes them without ext
+#Options +MultiViews
+
+#Options +FollowSymLinks
+
+# pass the default character set
+#AddDefaultCharset utf-8
+# Custom 404 page
+#ErrorDocument 404 /404
+#RewriteRule \.(css|jpe?g|gif|png|js|ico)$ - [L]
+RewriteRule ^article/([0-9]+) article.php?id=$1 [NC,L]
+#RewriteRule ^search/([a-z0-9]+)/$ search.php?s=$1 [NC,L]

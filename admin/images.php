@@ -16,13 +16,108 @@
 <script type="text/javascript" src="../js/string.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+  // $('.delRelation').on("click",function(event){
+  //   event.stopPropagation();
+  //   alert("asds");
+  //   //confirm("Are you sure you want to remove this relation?");
+  // });
+  $( "body" ).on( "click", "a.delRelation", function( event ) {
+    event.preventDefault();
+    var parent=$(this).closest('tr');
+    if(confirm("Are you sure you want to remove this relation?")){
+      var rel_data=$(this).attr("data");
+      var Rimage_id=$('#Rimage_id').val();
+      $.post('request.php', {encoded_relation_id:rel_data,image_id:Rimage_id}, function(data){
+        if(data.error == 0){
+          parent.fadeOut();
+          var relationButton=$('.relations.readMoreButton[data-b='+Rimage_id+']');
+          relationButton.attr('data-r',data.relations);
 
-  $('#relations').click(function(event){
+        }else{
+          alert(data.err_msg);
+        }
+      },"JSON");
+    }
+  });
+  //showGlobalInfo("Done");
+  $('.relations').click(function(event){
     event.preventDefault();
     event.stopPropagation();
     var id=$(this).attr('data-b');
+    var relationData= $(this).attr('data-r');
 
-    alert(id);
+    var relationDataObj=jQuery.parseJSON(relationData);
+    $('#Rimage_id').val(id);
+    $('.topCover').show();
+    if(relationDataObj.error != 0){
+      $('.data_T tbody').html("<tr><td colspan='3'>No Relations</td></tr>");
+    }else{
+      var count= Object.keys(relationDataObj).length;
+      var i=0;
+      for(i; i < count-1; i++){
+        var relation_id=relationDataObj[i].relation_enconded_id;
+        var relative=relationDataObj[i].relative_id;
+        var mode=getModeNameById(relationDataObj[i].mode);
+
+        if(i == 0){
+          $('.data_T tbody').html("<tr id="+relation_id+"><td>"+mode+"</td><td>"+relative+"</td><td><a class='delRelation' href='#' data="+relation_id+">Remove</a></td></tr>");
+        }else{
+          $('.data_T tbody').append("<tr id="+relation_id+"><td>"+mode+"</td><td>"+relative+"</td><td><a class='delRelation' href='#' data="+relation_id+">Remove</a></td></tr>");
+        }
+      }
+
+
+    }
+
+
+  });
+  $('#saveRelation').click(function(event){
+    event.preventDefault();
+    event.stopPropagation();
+
+    $('#relativeId').removeClass('err');
+    $('#relativeMode').removeClass('err');
+
+    var relativeMode=$('#relativeMode').val();
+    var relativeId=$('#relativeId').val();
+    var Rimage_id=$('#Rimage_id').val();
+    var uid=$('#uid').val();
+    var relationButton=$('.relations.readMoreButton[data-b='+Rimage_id+']');
+
+
+    if(relativeMode != 0){
+      if(relativeId != 0){
+          $.post('request.php',{relativeMode:relativeMode, relativeId:relativeId, image_id:Rimage_id,uid:uid},function(data){
+
+            if(data.error != 0){
+              $('.relator.error').html(data.err_msg);
+
+            }else{
+              $('.topCover').hide();
+              //alert(data.relations);
+              relationButton.attr('data-r',data.relations);
+              $('#relativeMode').val("0");
+              $('#relativeId').val("");
+              showGlobalInfo("Relation added successfully");
+            }
+
+          },"JSON");
+      }else{
+        $('.relator.error').html("Please put a valid relative id");
+        $('#relativeId').addClass('err');
+      }
+    }else{
+      $('.relator.error').html("Please select the mode");
+      $('#relativeMode').addClass('err');
+    }
+    //alert(relativeMode+relativeId+Rimage_id);
+  });
+  $('#closeTopCover').click(function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    $('.topCover').hide();
+    $('#relativeMode').val("0");
+    $('#relativeId').val("");
   });
 
   $('.addEd').click(function(){
@@ -51,7 +146,22 @@ $(document).ready(function(){
       }
     }
   });
+  function showGlobalInfo(text){
 
+    $('.globalInfo').html(text).show();
+    $('.globalInfo').fadeOut(5000);
+
+  }
+  function getModeNameById(mode){
+    var returna;
+
+    if(mode == 1){
+      returna="Post";
+    }else if(mode == 2){
+      returna="News";
+    }
+    return returna;
+  }
   function getSelectionText() {
     var text = "";
     var activeEl = document.activeElement;
@@ -66,19 +176,14 @@ $(document).ready(function(){
         text = window.getSelection().toString();
     }
     return text;
-}
-document.onselectionchange=function(){
-    console.log(getSelectionText());
-}
+  }
+  document.onselectionchange=function(){
+      console.log(getSelectionText());
+  }
   });
 </script>
 <body style="background:whitesmoke;">
-    <header style="height:100px; text-align:center; background:#455A64; position:relative;  color:#FFF;">
-      <div style="line-height:45px; height:45px; color:#FFF;">ADMIN DASHBOARD</div>
-      <div style="position:absolute; bottom:0; margin-bottom:3px; margin-left:16px; color:#FFF;">
-        Logged as: <?php $data=getUsername($uid); echo $data['username']; ?>
-      </div>
-    </header>
+    <?php include("header.php"); ?>
     <div class="marginer">
       <div class="adminMenu">
         <a href="home.php">Home</a>
@@ -89,20 +194,21 @@ document.onselectionchange=function(){
         <div style="margin:20px 0px;">
           <div class="clear"></div>
         </div>
-        <?php
-        if(isset($_POST['imgDesc'],$_FILES['image'],$_POST['uid'])){
-          echo $imagedesc=$_POST['imgDesc'];
-          echo $image = $_FILES['image'];
-          echo $uid= $_POST['uid'];
-
-          uploadImage($image, $imagedesc);
-        }
-        ?>
         <div class="col-3">
-        <div class="error" style="padding: 15px 0px;"></div>
+        <div class="error" style="padding: 15px 0px;">
+          <?php
+          if(isset($_POST['imgDesc'],$_FILES['image'],$_POST['uid'])){
+            $imagedesc=$_POST['imgDesc'];
+            $image = $_FILES['image'];
+            $uid= $_POST['uid'];
+
+              uploadImage($image, $imagedesc);
+          }
+          ?>
+        </div>
         <form action="" method="post" enctype="multipart/form-data">
-        <input type="text" name="imgDesc" style="font-size:16;" placeholder="Description"/>
-        <input type="file" name="image" style="font-size:16;" placeholder="Upload image"/>
+        <input type="text" name="imgDesc" style="font-size:16; margin-bottom:5px;" placeholder="Description"/>
+        <input type="file" name="image" style="font-size:16; margin-bottom:5px;" placeholder="Upload image"/>
         <input type="hidden" name="uid" value="<?php echo $uid; ?>" id="uid"/>
         <input type="submit" value="Upload">
       </form>
@@ -116,14 +222,16 @@ document.onselectionchange=function(){
               $image=$images[$i]['img_name'];
               ?>
               <div class="col-3" style="height:250px; overflow:hidden; width:33%;">
+                <div class="m90">
                 <div style="height:80%; background:url(../images/<?php echo $image; ?>); background-size:cover;">
                   <!-- <img src="../images/<?php //echo $image; ?>" style="max-width:90%; max-height:100%;"/> -->
                 </div>
                 <div style="height:20%;">
                   <div style="background:#f25; background:transparent;">
-                    <a href="#" id="relations" class="readMoreButton" data-b="<?php echo $images[$i]['image_id'];?>">Add Relation</a>
+                    <a href="#" class="relations readMoreButton" data-b="<?php echo $images[$i]['image_id'];?>" id="sendRelation" data-r='<?php echo getImageRelations($images[$i]['image_id'], true); ?>'>Add Relation</a>
                     <div class="clear"></div>
                   </div>
+                </div>
                 </div>
               </div>
               <?php
@@ -131,6 +239,44 @@ document.onselectionchange=function(){
           ?>
           <div class="clear"></div>
       </div>
+    </div>
+    <div class="topCover">
+      <div class="popUpBox">
+        <div style="background:#3F51B5; color:#FFF; padding:15px; font-weight: 500; font-size: 19px;">
+          Relator
+          <div class="right"><a href="#" id="closeTopCover">X</a></div>
+          <div class="clear"></div>
+        </div>
+        <div style="padding:15px;">
+          <table class="data_T" style="width:100%; text-align:center;">
+          <thead>
+            <tr>
+              <td>Mode</td>
+              <td>Relative Id</td>
+              <td>Remove</td>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+          </table>
+        </div>
+      <div style="padding:15px;">
+        <div class="relator error"></div>
+        <input type="hidden" id="Rimage_id" value="0"/>
+        <select id="relativeMode">
+          <option value="0">Choose relative type</option>
+          <option value="1">Post</option>
+          <option value="2">News</option>
+        </select>
+        Relative ID:<input type="text" class="short" id="relativeId" >
+        <input type="hidden" value="<?php $uid; ?>" id="uid"/>
+        <a href="#" id="saveRelation" class="readMoreButton small">Save Relation</a>
+        <div class="clear"></div>
+      </div>
+      </div>
+    </div>
+    <div class="globalInfo">
+      Image Relation Added
     </div>
 </body>
 </html>

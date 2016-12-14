@@ -25,14 +25,13 @@ $(document).ready(function(){
 });
 </script>
 <body style="background:whitesmoke;">
-    <header style="height:100px; text-align:center; background:#455A64; position:relative;  color:#FFF;">
-      <div style="line-height:45px; height:45px; color:#FFF;">ADMIN DASHBOARD</div>
-      <div style="position:absolute; bottom:0; margin-bottom:3px; margin-left:16px; color:#FFF;">Logged as: <?php $data=getUsername($uid); echo $data['username']; ?></div>
-    </header>
+    <?php include("header.php"); ?> 
     <div class="marginer">
     <div class="adminMenu">
       <a href="home.php">Home</a>
-      <a href="#">Posts</a>
+      <a href="#posts">Posts</a>
+      <a href="#news">News</a>
+      <a href="images.php">Images</a>
     </div>
       <div style="padding:20px; background:#FFF;">
         <h3 id="articles">Articles</h3>

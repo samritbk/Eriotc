@@ -78,23 +78,9 @@
 				</ul>
 			</li>
 		</a>
-			<a href="#">
-				<li><div class="liMarginer">ስርዓተ ጸሎት</div>
-					<ul class="subnav" style="">
-						<li>Prayer 1
-							<ul class="subsub">
-								<li>Title 1</li>
-								<li>Title 2</li>
-								<li>Title 3</li>
-							</ul>
-						</li>
-						<li>Prayer 2</li>
-						<li>Prayer 3</li>
-					</ul>
-				</li>
+		<a href="prayers.php">
+				<li><div class="liMarginer">ስርዓተ ጸሎት</div></li>
 		</a>
-
-
 			<a href="post.php?post_id=14"><li><div class="liMarginer">ስብከት ወንጌል</div></li></a>
 			<a href="post.php?post_id=16"><li><div class="liMarginer">ነገረ ቅዱሳን</div></li></a>
 			<a href="post.php?post_id=18"><li><div class="liMarginer">ብሂል ኣበው</div></li></a>
