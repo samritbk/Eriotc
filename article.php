@@ -12,11 +12,11 @@
 <title><?php echo $article['article_title']; ?> : ማሕበር ኪዳነ ምሕረት - ካምፓላ</title>
 </head>
 <body>
-  <?php include("header.php"); ?>
-<div style="height:80px; line-height:80px; background: whitesmoke;">
-	<div class="marginer" style="width:90%; margin:auto;"><h2>Article</h2></div>
-</div>
-
+<?php include("header.php"); ?>
+<?php
+  $pageName="ጽሑፋት";
+  include("grayBar.php");
+?>
 <div class="content">
 	<div class="marginer" style="">
 	<div class="left">
@@ -29,7 +29,7 @@
 					 if($article['error'] == 0){
             echo $article['article_title'];
            ?></h1>
-					 <section style="font-size:18px; line-height:25px; text-align:justify;">
+					 <section>
            <?php
             echo $article['article_text'];
 					}else{
@@ -40,11 +40,7 @@
 				}
            ?>
 				 	 </section>
-           <section style="color:#333;  width:90%; background: #CFCFCF; padding:15px; border-radius:5px; margin-top:25px;">
-              <p style="font-size: 18px; float:left; color: #333;">ማሕበርና ብ ሓገዝ ኣንበብትና ሰለትካየድ ብዝከኣለኩም መጠን ክትሕግዙና ብትሕትና ንላቦ።</p>
-              <a class="readMoreButton" href="#" style="margin:10px 0px;">ማሕበር ንምሕጋዝ</a>
-              <div class="clear"></div>
-           </section>
+           <?php include("donationAd.php"); ?>
          </article>
     </div>
   </div>

@@ -25,13 +25,23 @@ $(document).ready(function(){
 });
 </script>
 <body style="background:whitesmoke;">
-    <?php include("header.php"); ?> 
+    <?php include("header.php"); ?>
     <div class="marginer">
     <div class="adminMenu">
       <a href="home.php">Home</a>
       <a href="#posts">Posts</a>
       <a href="#news">News</a>
       <a href="images.php">Images</a>
+      <?php
+        $userPr=getUserPrivilage($uid);
+        if($userPr['error'] == 0){
+          if($userPr['privilage'] == 0){
+          ?>
+          <a href="users.php">Users</a>
+          <?php
+          }
+        }
+      ?>
     </div>
       <div style="padding:20px; background:#FFF;">
         <h3 id="articles">Articles</h3>
@@ -102,6 +112,33 @@ $(document).ready(function(){
                 <td><a id="deactive" dataId="<?php echo $posts[$i]['post_id'] ?>">Deactivate</a></td>
               </tr>
               <?php } ?>
+            </tbody>
+          </tr>
+        </table>
+        <h3 id="questions">Questions</h3>
+        <div style="margin:20px 0px;"><a href="#" class="button">Add Post</a></div>
+        <table class="data_T" style="width:100%;">
+            <thead style="text-align:center;">
+              <td>Question/Suggestion Id</td><td>Question/Suggestion</td><td>E-mail</td><td>Date</td></a><td>Edit</td><td>Deactivate</td>
+            </thead>
+            <tbody>
+              <?php
+                $qns=getQns(0);
+                $count=count($qns);
+                for($i=0; $i < $count; $i++){
+              ?>
+              <tr>
+                <td><?php echo $qns[$i]['sugid']; ?></td>
+                <td><?php echo $qns[$i]['suggest']; ?></td>
+                <td><?php echo $qns[$i]['email']; ?></td>
+                <td><?php echo gmdate("d-M-Y",$qns[$i]['timestamp']); ?></td>
+
+                <td><a href="edit.php?sugid=<?php echo $qns[$i]['sugid']; ?>">Edit</a></td>
+                <td><a id="deactive" dataId="<?php echo $posts[$i]['post_id'] ?>">Deactivate</a></td>
+              </tr>
+              <?php
+            }
+            ?>
             </tbody>
           </tr>
         </table>

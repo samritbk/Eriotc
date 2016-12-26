@@ -18,7 +18,51 @@ function getUser($user_id){
     }
       return $return;
 }
+function getUsers($limit=0, $order=0){
+  $return=array();
+  $limit=(int) $limit;
+  $order=(int) $order;
+  $addon="";
 
+  $mainQuery = "SELECT * FROM users";
+  if($order != 0 && $limit != 0){
+    $addon=" ORDER BY user_id ASC LIMIT $limit";
+  }else if($order != 0 && $limit == 0){
+    $addon=" ORDER BY user_id ASC";
+  }else if($order == 0 && $limit != 0){
+    $addon=" ORDER BY user_id DESC LIMIT $limit";
+  }else if($order == 0 && $limit == 0){
+      $addon=" ORDER BY user_id DESC";
+  }
+  $query=mysql_query($mainQuery.$addon);
+  while($row=mysql_fetch_assoc($query)){
+
+    $return[]=array(
+      "user_id"=>$row['user_id'],
+      "username"=>$row['username'],
+      "password"=>$row['password'],
+      "fullname"=>$row['fullname'],
+      "email"=>$row['email'],
+      "privilage"=>$row['privilage'],
+      "last_activity"=>$row['last_activity']);
+  }
+
+  return $return;
+}
+function isSuperAdmin($user_id){
+  $user_id = (int) $user_id;
+  $privilage = getUserPrivilage($user_id);
+
+  if($privilage['error'] == 0){
+    if($privilage['privilage'] == 0){
+      return true;
+    }else{
+      return false;
+    }
+  }else{
+    return false;
+  }
+}
 function compareUserPassword($username, $supposed_pass, $json=false,$session=false){ //bool
   $return = array();
   $username=$username;
@@ -79,7 +123,29 @@ function checkUsername($supposed_username){ //bool
     }
       return $return;
 }
+function getUserPrivilage($user_id){
+  $return=array();
+  $user_id = (int) $user_id;
 
+  if($user_id != 0){
+    $query= mysql_query("SELECT * FROM users WHERE user_id=$user_id");
+    $num_rows=mysql_num_rows($query);
+
+    if($num_rows != 0){
+      $row=mysql_fetch_assoc($query);
+
+      $return['error']=0;
+      $return['privilage']=$row['privilage'];
+    }else{
+      $return['error']=1;
+      $return['err_msg']="Database error :(";
+    }
+  }else{
+    $return['error']=1;
+    $return['err_msg']="User not specified :(";
+  }
+  return $return;
+}
 function checkLastActivity($user_id){ //timestamp
   $return = array();
 
@@ -228,5 +294,10 @@ function subscribedMail($to,$from,$subject="Thank you for subscribing to our mai
    }else{
      return false;
    }
+}
+function timestampToGeezDating($timestamp){
+  $geezMonthName=array('01'=>'ጥሪ', '02'=>'የካቲት','03'=>'መጋቢት','04'=> 'ሚያዝያ', '05'=>'ግንቦት', '06'=>'ሰነ', '07'=>'ሓምለ','08'=>'ነሓሰ','09'=>'መስከረም', '10'=>'ጥቅምቲ','11'=>'ሕዳር', '12'=>'ታሕሳስ');
+
+  return gmdate("d",$timestamp)." ".$geezMonthName[gmdate("m",$timestamp)]." ".gmdate("Y",$timestamp);
 }
 ?>

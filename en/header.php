@@ -3,10 +3,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="header">
 <div style="width:90%; margin:auto; text-align:right; height:auto; background:transparent; color:#FFF;">
-<div style="float:left;"><a href="admin/" class="lang">Login</a></div>
-<a href="#" class="lang">ትግርኛ</a> | <a href="#" class="lang" style="font-size:14px;">English</a>
+<div style="float:left;"><a href="../admin" class="lang">Login</a></div>
+<a href="../" class="lang">ትግርኛ</a> | <a href="" class="lang" style="font-size:14px;">English</a>
 </div>
-	<div style="background: Transparent; padding: 10px 0px;">
+	<div style="background: #FFF; padding: 10px 0px;">
 		<div style="width:90%; margin:auto;">
 						<img src="eotc-logo.png" class="logo">
 						<div class="logoName">Mahber Kidane Mihret - Kampala</div>
@@ -26,11 +26,11 @@
 			<a class="a" href="index.php"><li><div class="liMarginer">Home</div></li></a>
 			<a href="#">
 				<li>
-				<div class="liMarginer">ትምህርተ ሃይማኖት</div>
+				<div class="liMarginer">Religious Education</div>
 				<ul class="subnav">
 					<a class="navLink" href="post.php?cat_id=1">
 					<li style="position:relative;">
-					5 አዕማደ ምስጢር
+					5 pillars of orthodox
 						<ul class="subsub" style="">
 							<?php
 								$posts=getPostsByCategory(1,0,1);
@@ -45,7 +45,7 @@
 				</li>
 				</a>
 				<a class="navLink" href="post.php?cat_id=2">
-					<li style="position:relative;">7 ምስጢራተ ቤተክርስቲያን
+					<li style="position:relative;">7 sacraments of the church
 						<ul class="subsub" style="">
 							<?php
 								$posts = getPostsByCategory(2,0,1);
@@ -105,6 +105,7 @@
 <link rel='stylesheet' href="style.css" type='text/css' media='all' />
 <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 <link rel="stylesheet" href="css/jquery.calendars.picker.css">
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/jquery.plugin.js"></script>

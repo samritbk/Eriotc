@@ -55,7 +55,8 @@
   // echo $post['post_text'];
 //subscribedMail("sami@localhost","drogba20020@gmail.com")
   //sendMail("dsadsa","dadsas");
-  $article=getArticle(11);
-  echo refactorText($article['article_text']);
+  //$article=getArticle(11);
+  //echo refactorText($article['article_text']);
 
+  print_r(getUsers());
 ?>

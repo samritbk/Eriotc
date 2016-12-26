@@ -6,5 +6,5 @@
   include("functions/news.func.php");
   include("functions/search.func.php");
   include("functions/image.func.php");
-  $GLOB_URL="http://localhost/church/";
+  include("functions/questions.func.php");
 ?>

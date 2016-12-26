@@ -7,8 +7,13 @@ include("../functions/article.func.php");
 include("../functions/post.func.php");
 include("../functions/news.func.php");
 include("../functions/image.func.php");
+include("../functions/questions.func.php");
+
 
 function restricted(){
   header("Location:index.php");
+}
+function noAuthorization(){
+  header("Location:home.php");
 }
 ?>

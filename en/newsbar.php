@@ -1,7 +1,7 @@
 <div class="newsBar">
 	<div class="newsIntro">
-		<h2>ዜና ቤተ ክርስቲያን</h2>
-		<p>ህሉው ኩነታት ናይ ማሕበርና ኪዳነ ምህረትን ቤተ ክርስቲያንና ደብረ ብስራት ቅዱስ ገብርኤል</p>
+		<h2>Church News</h2>
+		<p>Current affairs affecting our church and organization</p>
 	</div>
 	<div class="newsBoxWrapper">
     <?php

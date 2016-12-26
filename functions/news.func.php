@@ -48,8 +48,7 @@ function newsExists($news_id){
 			$limit=(int) $limit;
 			$order=(int) $order;
 			$addon="";
-			$geezMonthName=array('01'=>'ጥሪ', '02'=>'የካቲት','03'=>'መጋቢት','04'=> 'ሚያዝያ', '05'=>'ግንቦት', '06'=>'ሰነ', '07'=>'ሓምለ','08'=>'ነሓሰ','09'=>'መስከረም', '10'=>'ጥቅምቲ','11'=>'ሕዳር', '12'=>'ታሕሳስ');
-			
+
 			$mainQuery = "SELECT * from news";
 			if($order !=0 && $limit !=0){
 				$addon=" ORDER BY news_id ASC LIMIT $limit";
@@ -65,7 +64,7 @@ function newsExists($news_id){
 	      $return[]=array(
 	        "news_id"=>$row['news_id'],
 	        "news_title"=>$row['news_title'],
-					"date_created"=>gmdate("d",$row['date_created'])." ".$geezMonthName[gmdate("m",$row['date_created'])]." ".gmdate("Y",$row['date_created'])
+					"date_created"=>timestampToGeezDating($row['date_created'])
 				);
 	        //"news_text"=>$row['news_text'],
 	        //"news_author_id"=>$row['news_author_id'],
@@ -74,4 +73,51 @@ function newsExists($news_id){
 			}
 			return $return;
 		}
+
+    function writeNews($news_title, $news_text, $news_author, $email_notification=0){
+	    $return = array();
+	    $news_title = nl2br(mysql_real_escape_string(addslashes(trim($news_title))));
+	    $news_text = nl2br($news_text);
+	    $news_text = mysql_real_escape_string(addslashes(trim($news_text)));
+	    $news_author = (int) $news_author;
+	    $timestamp = time();
+
+	    if($news_author !=0){
+	      $query = mysql_query("INSERT into news(news_title,news_text,news_author_id,date_created,last_modified)
+				VALUES('$news_title','$news_text','$news_author','$timestamp','$timestamp')");
+
+	      if($query){
+	        $return['error'] = 0;
+	        $return['last_id'] = mysql_insert_id();
+	}
+	      else{
+	        $return['error'] = 0;
+	        $return['err_msg'] = "Database Error. Please Try again Later";
+	      }
+	    }
+	    else{
+	      $return['error'] = 1;
+	      $return['err_msg'] = "User not verified";
+	    }
+	    return json_encode($return);
+	  }
+
+		function editNews($news_id,$news_title,$news_text,$newsEditor){
+	    $return=array();
+
+	    $news_title=nl2br(mysql_real_escape_string($news_title));
+	    $news_text=nl2br($news_text);
+	    $news_text=mysql_real_escape_string($news_text);
+
+	    $query=mysql_query("UPDATE news SET news_title='$news_title', news_text='$news_text', news_author_id='$newsEditor'
+	       WHERE news_id='$news_id'");
+	    if($query){
+	      $return['error']=0;
+	    }else{
+	      $return['error']=1;
+	      $return['err_msg']="Edit couldn't be completed";
+	    }
+	    echo mysql_error();
+	    return json_encode($return);
+	  }
 ?>

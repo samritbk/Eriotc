@@ -114,6 +114,7 @@
 }else if(isset($_GET['cat_id'])){
   $posts=getPostsByCategory($_GET['cat_id'], 0, 1);
   $count=count($posts);
+  if($count != 0){
    for($i=0; $i < $count; $i++){
      ?>
       <div class="col-3">
@@ -125,9 +126,14 @@
           </a>
         </div>
       </div>
-<?php
+  <?php
+      }
+    }else{
+      ?>
+      <h1>ጽሑፋት ኣብ ቀረባ ግዜ</h1>
+      <?php
     }
-?>
+  ?>
     <div class="clear"></div>
   <?php
 }

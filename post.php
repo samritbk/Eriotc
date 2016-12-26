@@ -10,22 +10,18 @@
 </head>
 <body>
   <?php include("header.php"); ?>
-<div style="height:80px; line-height:80px; background: whitesmoke;">
-	<div class="marginer" style="width:90%; margin:auto;">
-    <h2>
-    <?php
-      if(isset($_GET['cat_id'])){
-        $catName=getCategoryName($_GET['cat_id']);
-        echo $catName;
-      }else if(isset($_GET['post_id'])){
-        $post=getPost($_GET['post_id']);
-        $catName=getCategoryName($post['post_category']);
-        echo $catName;
-      }
-    ?>
-    </h2>
-  </div>
-</div>
+
+<?php
+  if(isset($_GET['cat_id'])){
+    $pageName=getCategoryName($_GET['cat_id']);
+  }else if(isset($_GET['post_id'])){
+    $post=getPost($_GET['post_id']);
+    if($post['error'] != 1){
+      $pageName=getCategoryName($post['post_category']);
+    }
+  }
+  include("grayBar.php");
+?>
 
 <div class="content">
 	<div class="marginer" style="">
@@ -49,10 +45,11 @@
 						echo $post['err_msg'];
 					}
 				}else{
-					echo "No article selected";
+					echo "No post selected";
 				}
            ?>
 				 	 </section>
+           <?php include("donationAd.php"); ?>
          </article>
     </div>
   </div>
@@ -65,8 +62,8 @@
   // use for loop
   // put your box inside
   if(isset($_GET['post_id'])){
+  //$posts=getPostsByCategory($post['post_category'],0,1);
 
-  $posts=getPostsByCategory($post['post_category'],0,1);
   $count=count($posts);
   $current_postid = $_GET['post_id'];
   for($i=0; $i < $count; $i++){
@@ -114,6 +111,7 @@
 }else if(isset($_GET['cat_id'])){
   $posts=getPostsByCategory($_GET['cat_id'], 0, 1);
   $count=count($posts);
+  if($count != 0){
    for($i=0; $i < $count; $i++){
      ?>
       <div class="col-3">
@@ -125,9 +123,45 @@
           </a>
         </div>
       </div>
-<?php
+  <?php
+      }
+    }else{
+      ?>
+      <div class="left">
+        <h1>ጽሑፋት ኣብ ቀረባ ግዜ</h1>
+      </div>
+      <div class="sideBar">
+        <?php
+        // get articles here
+        // use for loop
+        // put your box inside
+        $articles=getArticles(3);
+        $count=count($articles);
+        //$current_articleid = $_GET['id'];
+        for($i=0; $i < $count; $i++){
+        ?>
+          <div class="articleBox">
+            <h3><a href="article.php?id=<?php echo $articles[$i]['article_id']; ?>"><?php echo $articles[$i]['article_title']; ?></a></h3>
+            <div>ናይ 27 መስከረም 2009</div>
+            <hr></hr>
+            <div class="shortDesc">
+              <?php
+                $articleShort=getArticleShort($articles[$i]['article_id'],300);
+                echo $articleShort['article_short'];
+              ?>
+            </div>
+              <div class="articleBoxBottom">
+                <a href="article.php?id=<?php echo $articles[$i]['article_id']; ?>" class="readMoreButton">ምሉእ ትሕዝቶ</a><div class="clear"></div>
+              </div>
+
+        </div>
+        <?php
+        }
+        ?>
+      </div>
+      <?php
     }
-?>
+  ?>
     <div class="clear"></div>
   <?php
 }

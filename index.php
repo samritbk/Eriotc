@@ -11,19 +11,10 @@
 </head>
 <body>
 <?php include("header.php"); ?>
-<div style="height:80px; line-height:80px; background: whitesmoke;">
-	<div class="marginer" style="width:90%; margin:auto;">
-    <h2 class="left">ቅድመ ገጽ</h2>
-    <div class="right" style="line-height:64px; height:100%; display: table-cell;
-    vertical-align: middle;">
-      <div class="searchBoxCover">
-        <i class="ion-search" style="font-size:16px; margin-right:10px;" ></i>
-        <input id="search" type="search" placeholder="ጽሑፋት ድለ"/>
-      </div>
-    </div>
-    <div class="clear"></div>
-  </div>
-</div>
+<?php
+  $pageName="ቅድመ ገጽ";
+  include("grayBar.php");
+?>
 <div class="content">
 	<!-- <div class="marginer" style=""> -->
 <div class="left-sidebar left" style="width:20%; padding-top:30px;">
@@ -35,6 +26,7 @@
 			<li>dsfa</li>
 		</ul>
 	</div> -->
+
 <section>
 	<p>ኢሜል ሳብስክሪብሽን</p>
   <span id="msg"></span>
@@ -49,8 +41,14 @@
 		<input type="button" value="ስደድ" id="suggId" class="button"/>
 </section>
 <section>
+  <p>
+      ማሕበርና ብ ሓገዝ ኣንበብትና ሰለትካየድ ብዝከኣለኩም መጠን ክትሕግዙና ብትሕትና ንላቦ።
+  </p>
+  <a href="donation.php" class="readMoreButton" style="float:none; margin-top:5px; overflow:auto;">ሓግዙና</a>
+</section>
+<section>
 	<div class="left social-icons">
-		<a href="#"><img src="facebook.png"/></a>
+		<a href="http://facebook.com/eriotcorg/"><img src="facebook.png"/></a>
 	</div>
 	<div class="left social-icons">
 		<a href="#"><img src="twitter.png"/></a>
@@ -88,7 +86,7 @@
 	</div>
 </div>
 <div class="mainRight right" style="overflow:auto;">
-	<section>
+<section>
 	<div class="quoteOfTheDay" id="inlineDatepicker">
 			<!-- <p>ንይ ሎሚ ትምህርቲ</p>
 			<div class="quoteOfTheDayText">
@@ -96,13 +94,12 @@
 			</div>
 			<p class="quoteOfTheDayVerse">ማት 15:15-65</p> -->
 	</div>
-  <!-- <a href="#" id="date8">8</a> -->
 </section>
 <section>
   <p>
-    ማሕበርና ብ ሓገዝ ኣንበብትና ሰለትካየድ ብዝከኣለኩም መጠን ክትሕግዙና ብትሕትና ንላቦ።
+      ማሕበርና ብ ሓገዝ ኣንበብትና ሰለትካየድ ብዝከኣለኩም መጠን ክትሕግዙና ብትሕትና ንላቦ።
   </p>
-  <a href="#" class="readMoreButton" style="float:none; margin-top:5px; overflow:auto;">ሓግዙና</a>
+  <a href="donation.php" class="readMoreButton" style="float:none; margin-top:5px; overflow:auto;">ሓግዙና</a>
 </section>
 <section class="pastArticles">
 <div class="articleBox">
@@ -113,7 +110,10 @@
   $count=count($articles);
   for($i=0; $i < $count; $i++){
     ?>
-    <a href="article.php?id=<?php echo $articles[$i]['article_id']; ?>"><li title="<?php echo $articles[$i]['article_title']; ?>"><?php echo $articles[$i]['article_title']; ?></li></a>
+    <a href="article.php?id=<?php echo $articles[$i]['article_id']; ?>">
+      <li title="<?php echo $articles[$i]['article_title']; ?>"><?php echo $articles[$i]['article_title']; ?>
+      </li>
+    </a>
     <?php
   }
   ?>
@@ -139,4 +139,7 @@
 ^
 </div> -->
 </body>
+<script type="text/javascript">
+$(window).scrollTop(0);
+</script>
 </html>

@@ -1,4 +1,5 @@
 <?php
+  header("Location:default.php");
   include("functions.php");
 
   //print_r(getUser(1));
@@ -13,12 +14,12 @@
 <?php include("header.php"); ?>
 <div style="height:80px; line-height:80px; background: whitesmoke;">
 	<div class="marginer" style="width:90%; margin:auto;">
-    <h2 class="left">ቅድመ ገጽ</h2>
+    <h2 class="left">Home</h2>
     <div class="right" style="line-height:64px; height:100%; display: table-cell;
     vertical-align: middle;">
       <div class="searchBoxCover">
         <i class="ion-search" style="font-size:16px; margin-right:10px;" ></i>
-        <input id="search" type="search" placeholder="ጽሑፋት ድለ"/>
+        <input id="search" type="search" placeholder="Search"/>
       </div>
     </div>
     <div class="clear"></div>
@@ -79,7 +80,7 @@
             ?>
 				</div>
 					<div class="articleBoxBottom">
-						<a href="article.php?id=<?php echo $articles[$i]['article_id']; ?>" class="readMoreButton">ምሉእ ትሕዝቶ</a><div class="clear"></div>
+						<a href="article.php?id=<?php echo $articles[$i]['article_id']; ?>" class="readMoreButton">Read More</a><div class="clear"></div>
 					</div>
 			</div>
 		<?php
@@ -89,24 +90,18 @@
 </div>
 <div class="mainRight right" style="overflow:auto;">
 	<section>
-	<div class="quoteOfTheDay" id="inlineDatepicker">
-			<!-- <p>ንይ ሎሚ ትምህርቲ</p>
-			<div class="quoteOfTheDayText">
-				ንጽባሕቱ ሰዓት 5 ድ.ቀ ሳሚ ካብ ዲያቆን ዘተቀበላ ደብዳቤ ተሰኪሙ ናብ እንዳ ቤዛ ከደ። ቤዛ ጸብሒ ክስትሰርሕ ከም ዝጸንሐት  እቲ ካብ ርሑቅ ኮንካ  ዝሽትት ዘነበረ ጨና ሽሮ ይምስክር። ናይ ኽሽነ ኣቁሑት
-			</div>
-			<p class="quoteOfTheDayVerse">ማት 15:15-65</p> -->
-	</div>
-  <!-- <a href="#" id="date8">8</a> -->
+	<!--<div class="quoteOfTheDay" id="inlineDatepicker">
+	</div>-->
 </section>
 <section>
   <p>
-    ማሕበርና ብ ሓገዝ ኣንበብትና ሰለትካየድ ብዝከኣለኩም መጠን ክትሕግዙና ብትሕትና ንላቦ።
+    Our website runs under your support. Please take a minute to support us.
   </p>
-  <a href="#" class="readMoreButton" style="float:none; margin-top:5px; overflow:auto;">ሓግዙና</a>
+  <a href="#" class="readMoreButton" style="float:none; margin-top:5px; overflow:auto;">Donate</a>
 </section>
 <section class="pastArticles">
 <div class="articleBox">
-<p>ዝሓለፋ ጽሑፋት</p>
+<p>Past Articles</p>
 <ul class="left-nav">
   <?php $articles=getArticles(10); ?>
   <?php

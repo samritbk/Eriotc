@@ -9,7 +9,7 @@
   <div class="" style="width:90%; margin:auto; padding-bottom:60px; ">
     <div style="margin:auto; color:#FFF;">
     <h1 style="color: #252525 !important;">ሓገዝኩም የድልየና ኣሎ</h1>
-    <p style="color: #252525 !important; text-align: justify; margin-bottom: 30px;">
+    <p class="donationText">
       ዲያቆን መርሃዉን ዲያንቆን በረኸትን ውሽጢ ቤት መቅደስ ከጸራርይዎ ድሕሪ ምውዒሎም ኣብ ጥቃ ቤተ ክርስቲያን እትርከብ መሸጣ ድኳን ኮካ ክስተዩ ተኣለዩ። ድያቆን በርኸት ምስ ድያቆን መርሃዊ ኣዝዩ ጥቡቅ ዕርክነት ኣለዎ። በሬ ሓወይዲያቆን መርሃዉን ዲያንቆን በረኸትን ውሽጢ ቤት መቅደስ ከጸራርይዎ ድሕሪ ምውዒሎም ኣብ ጥቃ ቤተ ክርስቲያን እትርከብ መሸጣ ድኳን ኮካ ክስተዩ ተኣለዩ። ድያቆን በርኸት ምስ ድያቆን መርሃዊ ኣዝዩ ጥቡቅ ዕርክነት ኣለዎ። በሬ ሓወይ
       ዲያቆን መርሃዉን ዲያንቆን በረኸትን ውሽጢ ቤት መቅደስ ከጸራርይዎ ድሕሪ ምውዒሎም ኣብ ጥቃ ቤተ ክርስቲያን እትርከብ መሸጣ ድኳን ኮካ ክስተዩ ተኣለዩ። ድያቆን በርኸት ምስ ድያቆን መርሃዊ ኣዝዩ ጥቡቅ ዕርክነት ኣለዎ። በሬ ሓወይዲያቆን መርሃዉን ዲያንቆን በረኸትን ውሽጢ ቤት መቅደስ ከጸራርይዎ ድሕሪ ምውዒሎም ኣብ ጥቃ ቤተ ክርስቲያን እትርከብ መሸጣ ድኳን ኮካ ክስተዩ ተኣለዩ። ድያቆን በርኸት ምስ ድያቆን መርሃዊ ኣዝዩ ጥቡቅ ዕርክነት ኣለዎ። በሬ ሓወይ
       ዲያቆን መርሃዉን ዲያንቆን በረኸትን ውሽጢ ቤት መቅደስ ከጸራርይዎ ድሕሪ ምውዒሎም ኣብ ጥቃ ቤተ ክርስቲያን እትርከብ መሸጣ ድኳን ኮካ ክስተዩ ተኣለዩ። ድያቆን በርኸት ምስ ድያቆን መርሃዊ ኣዝዩ ጥቡቅ ዕርክነት ኣለዎ። በሬ ሓወይዲያቆን መርሃዉን ዲያንቆን በረኸትን ውሽጢ ቤት መቅደስ ከጸራርይዎ ድሕሪ ምውዒሎም ኣብ ጥቃ ቤተ ክርስቲያን እትርከብ መሸጣ ድኳን ኮካ ክስተዩ ተኣለዩ። ድያቆን በርኸት ምስ ድያቆን መርሃዊ ኣዝዩ ጥቡቅ ዕርክነት ኣለዎ። በሬ ሓወይ
@@ -18,9 +18,9 @@
     <!-- <a href="#" style="background:transparent; border:1px solid #999; color:#999; padding:8px 12px; border-radius:5px;">ብሰፊሑ</a> -->
     </div>
 
-  <div class="left"style="width:33.3%; margin:auto; color:#FFF;">
+  <div class="col-3">
     <h1 style="color: #252525 !important;">ርኸቡና</h1>
-    <p style="color: #252525 !important; text-align: justify; margin-bottom: 30px;">
+    <p class="donationCol3Text">
       ዲያቆን መርሃዉን : ዲያንቆን በረኸትን</br></br>
       ዲያቆን መርሃዉን : ዲያንቆን በረኸትን</br></br>
       ዲያቆን መርሃዉን : ካምፓላ ኡጋንዳ</br></br>
@@ -31,9 +31,9 @@
     <!-- <a href="#" style="background:transparent; border:1px solid #999; color:#999; padding:8px 12px; border-radius:5px;">ብሰፊሑ</a> -->
   </div>
 
-  <div class="left"style="width:33.3%; margin:auto; color:#FFF;">
+  <div class="col-3">
     <h1 style="color: #252525 !important;">ርኸቡና</h1>
-    <p style="color: #252525 !important; text-align: justify; margin-bottom: 30px;">
+    <p class="donationCol3Text">
       ዲያቆን መርሃዉን : ዲያንቆን በረኸትን</br></br>
       ዲያቆን መርሃዉን : ዲያንቆን በረኸትን</br></br>
       ዲያቆን መርሃዉን : ካምፓላ ኡጋንዳ</br></br>
@@ -44,9 +44,9 @@
     <!-- <a href="#" style="background:transparent; border:1px solid #999; color:#999; padding:8px 12px; border-radius:5px;">ብሰፊሑ</a> -->
   </div>
 
-  <div class="left"style="width:33.3%; margin:auto; color:#FFF;">
+  <div class="col-3">
     <h1 style="color: #252525 !important;">ርኸቡና</h1>
-    <p style="color: #252525 !important; text-align: justify; margin-bottom: 30px;">
+    <p class="donationCol3Text">
       ዲያቆን መርሃዉን : ዲያንቆን በረኸትን</br></br>
       ዲያቆን መርሃዉን : ዲያንቆን በረኸትን</br></br>
       ዲያቆን መርሃዉን : ካምፓላ ኡጋንዳ</br></br>
@@ -61,5 +61,5 @@
 <div class="clear"></div>
 </div>
 </div>
-<!-- <?php include("info.php"); ?> -->
+<?php include("newsBar.php"); ?>
 <?php include("footer.php"); ?>

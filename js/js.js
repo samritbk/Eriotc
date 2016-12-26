@@ -1,7 +1,10 @@
+var geezMonthName=['ጥሪ', 'የካቲት','መጋቢት', 'ሚያዝያ', 'ግንቦት', 'ሰነ', 'ሓምለ', 'ነሓሰ','መስከረም', 'ጥቅምቲ','ሕዳር', 'ታሕሳስ'];
+var geezDateName=['ሰንበት', 'ሰኑይ', 'ሰሉስ', 'ረቡዕ', 'ሓሙስ', 'ዓርቢ', 'ቀዳም'];
+
 $( document ).ready(function() {
     console.log( "ready!" );
 		var calender = $.calendars.instance('ethiopian');
-
+    
 		var d = calender.formatDate('DD ~ dd MM yyyy', calender.today());
 		var a=$('.date1');
 		a.html(d);
@@ -17,10 +20,39 @@ $( document ).ready(function() {
         window.location.href='search.php?s='+s;
       }
     });
+
+    $('#btnid').click(function() {
+      subscribe();
+    });
+
+    $('#emailid').keypress(function(event){
+      if (event.which == 13) {
+          subscribe();
+      }
+    });
+
+
+    $('#suggId').click(function(){
+        suggest();
+    });
+
+    $('#navToggle').click(function(event){
+      event.preventDefault();
+      if($('.nav').is(':hidden')){
+        $('.nav').css('display','block');
+      }else{
+        $('.nav').attr('style',"");
+      }
+    });
+  	var calendar = $.calendars.instance('ethiopian');
+  	//$('#popupDatepicker').calendarsPicker({calendar: calendar});
+  	$('#inlineDatepicker').calendarsPicker({calendar:calendar});
+  	$('#date8').hover(function(){
+
+  	});
+
 });
 
-var geezMonthName=['ጥሪ', 'የካቲት','መጋቢት', 'ሚያዝያ', 'ግንቦት', 'ሰነ', 'ሓምለ', 'ነሓሰ','መስከረም', 'ጥቅምቲ','ሕዳር', 'ታሕሳስ'];
-var geezDateName=['ሰንበት', 'ሰኑይ', 'ሰሉስ', 'ረቡዕ', 'ሓሙስ', 'ዓርቢ', 'ቀዳም'];
 function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
@@ -58,92 +90,43 @@ function subscribe(){
 }
 
 function suggest(){
-         var txtarea = $('#suggText').val();
-         var txtmail = $('#suggEmail').val();
+   var txtarea = $('#suggText').val();
+   var txtmail = $('#suggEmail').val();
 
-         $('#suggText').removeClass("err");
-         $('#suggEmail').removeClass("err");
+   $('#suggText').removeClass("err");
+   $('#suggEmail').removeClass("err");
 
-         if(txtarea != ""){
-           if(txtmail != ""){
-             if(isEmail(txtmail)){
-               $.post('request.php',{txtarea:txtarea,txtmail:txtmail}, function(data){
-                 if(data.error != 0){
-                   $('#suggmsg').removeClass("success").addClass("error").css('display','block');
-
-                  $('#suggmsg').html("ኢሜል ኣይተመዝገበን፥ ጽንሕ ኢልኩም ፈትኑ");
-
-                 }else{
-                   $('#suggmsg').addClass("success").css('display','block');
-                   $('#suggmsg').html("ርእይቶኹም ተቐቢልናዮ ኣለና");
-                   $('#suggEmail').val("");
-                   $('#suggText').val("");
-                 }
-               },"JSON");
-              // alert("Good")
-             }
-             else{
-               $('#suggmsg').removeClass("success").addClass("error").css('display','block');
-               $('#suggmsg').html("ኢሜል ልክዕ ኣይኮነን");
-               $('#suggEmail').addClass("err");
-               //alert("Email Not Correct");
-             }
+  if(txtarea != ""){
+    if(txtmail != ""){
+      if(isEmail(txtmail)){
+          $.post('request.php',{txtarea:txtarea,txtmail:txtmail}, function(data){
+           if(data.error != 0){
+              $('#suggmsg').removeClass("success").addClass("error").css('display','block');
+              $('#suggmsg').html("ኢሜል ኣይተመዝገበን፥ ጽንሕ ኢልኩም ፈትኑ");
            }else{
-             $('#suggmsg').removeClass("success").addClass("error").css('display','block');
-             $('#suggmsg').html("ኢሜል ኣይተመልአን");
-             $('#suggEmail').addClass("err");
-             //alert("fill out email");
+             $('#suggmsg').addClass("success").css('display','block');
+             $('#suggmsg').html("ርእይቶኹም ተቐቢልናዮ ኣለና");
+             $('#suggEmail').val("");
+             $('#suggText').val("");
            }
-       }else{
-         $('#suggmsg').addClass("error").css('display','block').fadeOut(10000);
-         $('#suggmsg').html("ርእይቶ ወይ ሕቶ ኣይተመልአን");
-         $('#suggText').addClass("err");
-         //alert("Fill out text");
-       }
-     }
-$( document ).ready(function() {
-  $('#btnid').click(function() {
-    subscribe();
-  });
-
-  $('#emailid').keypress(function(event){
-    if (event.which == 13) {
-        subscribe();
+         },"JSON");
+        // alert("Good")
+      }else{
+        $('#suggmsg').removeClass("success").addClass("error").css('display','block');
+        $('#suggmsg').html("ኢሜል ልክዕ ኣይኮነን");
+        $('#suggEmail').addClass("err");
+        //alert("Email Not Correct");
+      }
+    }else{
+      $('#suggmsg').removeClass("success").addClass("error").css('display','block');
+      $('#suggmsg').html("ኢሜል ኣይተመልአን");
+      $('#suggEmail').addClass("err");
+      //alert("fill out email");
     }
-  });
-
-
-$('#suggId').click(function(){
-    suggest();
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	var calendar = $.calendars.instance('ethiopian');
-	//$('#popupDatepicker').calendarsPicker({calendar: calendar});
-	$('#inlineDatepicker').calendarsPicker({calendar:calendar});
-	$('#date8').hover(function(){
-
-	});
-});
+  }else{
+  $('#suggmsg').addClass("error").css('display','block').fadeOut(10000);
+  $('#suggmsg').html("ርእይቶ ወይ ሕቶ ኣይተመልአን");
+  $('#suggText').addClass("err");
+  //alert("Fill out text");
+  }
+}

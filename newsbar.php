@@ -8,20 +8,16 @@
     $newses=getNewses(3);
     $count=count($newses);
     for($i=0; $i < $count; $i++){
-    ?>
+		?>
     <div class="newsBoxCol">
-
 			<a href="news.php?news_id=<?php echo $newses[$i]['news_id']; ?>">
 			<div class="newsBox" style="background:url(<?php echo assigedNewsImageLoc($newses[$i]['news_id'],1); ?>); background-size:cover;">
-            <!-- Abzi Div Serah -->
-
-							<div class="newsBoxTitle"><!--<a href="news.php">Latest News</a></div>-->
-                <?php echo $newses[$i]['news_title']; ?>
-              </div>
-              <div class="newsBoxDate">
-                  <?php echo $newses[$i]['date_created']; ?>
-              </div>
-                <!--<hr></hr>-->
+        <div class="newsBoxTitle"><!--<a href="news.php">Latest News</a></div>-->
+            <?php echo $newses[$i]['news_title']; ?>
+          </div>
+          <div class="newsBoxDate">
+              <?php echo $newses[$i]['date_created']; ?>
+          </div>
       </div>
 			</a>
       </div>

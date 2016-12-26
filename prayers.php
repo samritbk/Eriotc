@@ -10,22 +10,10 @@
 </head>
 <body>
   <?php include("header.php"); ?>
-<div style="height:80px; line-height:80px; background: whitesmoke;">
-	<div class="marginer" style="width:90%; margin:auto;">
-    <h2 style="float:left;">
-      ናይ ዘውትር ጽሎት - Daily Prayers
-    </h2>
-    <div class="right" style="line-height:64px; height:100%; display: table-cell;
-    vertical-align: middle;">
-      <div class="searchBoxCover">
-        <i class="ion-search" style="font-size:16px; margin-right:10px;"></i>
-        <input type="search" id="search" placeholder="ጽሑፋት ድለ" value="<?php if(isset($_GET['s']) && $_GET['s'] != null){ echo $_GET['s']; }?>">
-      </div>
-    </div>
-    <div class="clear"></div>
-  </div>
-</div>
-
+  <?php
+    $pageName="ናይ ዘውትር ጽሎት - Daily Prayers";
+    include("grayBar.php");
+  ?>
 <div class="content">
 <?php //print_r(searchArticles("ሻይ")); ?>
   <div class="marginer">

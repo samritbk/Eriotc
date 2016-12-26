@@ -4,7 +4,7 @@
 <div class="header">
 <div style="width:90%; margin:auto; text-align:right; height:auto; background:transparent; color:#FFF;">
 <div style="float:left;"><a href="admin/" class="lang">Login</a></div>
-<a href="#" class="lang">ትግርኛ</a> | <a href="#" class="lang" style="font-size:14px;">English</a>
+<a href="./" class="lang">ትግርኛ</a> | <a href="en" class="lang" style="font-size:14px;">English</a>
 </div>
 	<div style="background: Transparent; padding: 10px 0px;">
 		<div style="width:90%; margin:auto;">
@@ -20,7 +20,8 @@
 	</div>
 	<div class="clear"></div>
 </div>
-	<div class="nav" style="">
+<a href="#navToggle" id="navToggle"><div style="width:100%; height:50px; text-align:center; background:#FFF;">Menu</div></a>
+<div class="nav">
 <div style="margin:auto; width:90%;">
 		<ul>
 			<a class="a" href="index.php"><li><div class="liMarginer">ቅድመ ገጽ</div></li></a>
@@ -106,6 +107,7 @@
 <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
 <link rel="stylesheet" href="css/jquery.calendars.picker.css">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/jquery.plugin.js"></script>
 <script src="js/jquery.calendars.js"></script>

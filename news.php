@@ -10,10 +10,10 @@
 </head>
 <body>
   <?php include("header.php"); ?>
-<!--News Title-->
-  <div style="height:80px; line-height:80px; background: whitesmoke;">
-  	<div class="marginer" style="width:90%; margin:auto;"><h2>News</h2></div>
-  </div>
+  <?php
+    $pageName="ዜና ቤተ ክርስቲያንና";
+    include("grayBar.php");
+  ?>
 <div class = "content">
 	<div class="marginer" style="">
 	<div class="left">
@@ -38,11 +38,12 @@
 						}
 							?>
 						</section>
+            <?php include("donationAd.php"); ?>
 			</article>
 		</div>
 	</div>
 
-	<div class="right" style="width:25%; background: #FFF; padding:5px 0px;">
+	<div class="right sideBar">
   <div style="background: white; border-radius:5px; margin:auto; overflow:hidden;">
   <?php
   // get articles here

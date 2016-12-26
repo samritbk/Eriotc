@@ -90,8 +90,7 @@
     $limit=(int) $limit;
     $order=(int) $order;
     $addon="";
-    $geezMonthName=array('01'=>'ጥሪ', '02'=>'የካቲት','03'=>'መጋቢት','04'=> 'ሚያዝያ', '05'=>'ግንቦት', '06'=>'ሰነ', '07'=>'ሓምለ','08'=>'ነሓሰ','09'=>'መስከረም', '10'=>'ጥቅምቲ','11'=>'ሕዳር', '12'=>'ታሕሳስ');
-
+    
     $mainQuery = "SELECT * FROM articles";
     if($order != 0 && $limit != 0){
       $addon=" ORDER BY article_id ASC LIMIT $limit";
@@ -110,7 +109,7 @@
         "article_title"=>$row['article_title'],
         "article_text"=>$row['article_text'],
         "article_author_id"=>$row['article_author_id'],
-        "date_created"=>gmdate("d",$row['date_created'])." ".$geezMonthName[gmdate("m",$row['date_created'])]." ".gmdate("Y",$row['date_created']),
+        "date_created"=>timestampToGeezDating($row['date_created']),
         "last_modified"=>$row['last_modified']);
     }
 
